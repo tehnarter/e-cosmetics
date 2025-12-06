@@ -40,7 +40,10 @@ onMounted(() => {
           <div class="footer__brand">
             <h1 class="footer__logo">COSMETICS</h1>
 
-            <p class="footer__text">Текст</p>
+            <p class="footer__text">
+              У нас є косметика, яка підкреслить твій стиль і якою ти будеш
+              пишатися. Для жінок і чоловіків.
+            </p>
 
             <div class="footer__socials">
               <NuxtLink
