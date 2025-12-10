@@ -128,13 +128,14 @@ const data = [
   .header__inner {
     display: flex;
     position: relative;
-    max-width: 1280px;
+    max-width: 1280px; // == max-w-frame
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 16px;
+    padding: 20px 16px; // == py-5 px-4
+
     @media (min-width: 768px) {
-      padding: 24px 16px;
+      padding: 24px 16px; // == md:py-6
     }
   }
 }

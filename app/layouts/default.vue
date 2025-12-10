@@ -1,11 +1,12 @@
 <template>
   <div class="layout">
     <div class="wrapper">
+      <TopBanner />
       <Header />
       <main class="main">
         <NuxtPage />
       </main>
-      <!-- <AppFooter /> -->
+      <Footer />
     </div>
   </div>
 </template>

@@ -9,7 +9,7 @@ const submit = () => {
 
 <template>
   <section class="newsletter">
-    <p class="newsletter__title">БУДЬТЕ В КУРСІ НАШИХ ОСТАННІХ ПРОПОЗИЦІЙ</p>
+    <p class="newsletter__title">ОТРИМУЙТЕ НАЙСВІЖІШІ ПРОПОЗИЦІЇ ПЕРШИМИ</p>
 
     <div class="newsletter__form-wrapper">
       <div class="newsletter__form">
@@ -26,7 +26,7 @@ const submit = () => {
           <input
             v-model="email"
             type="email"
-            placeholder="Введіть адресу електронної пошти"
+            placeholder="Enter your email address"
             class="newsletter__input"
           />
         </div>

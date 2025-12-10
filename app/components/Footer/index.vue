@@ -31,7 +31,7 @@ onMounted(() => {
   <footer class="footer">
     <div class="footer__newsletter-wrapper">
       <div class="container">
-        <!-- <FooterNewsLetter /> -->
+        <FooterNewsLetter />
       </div>
     </div>
     <div class="footer__content">
@@ -41,8 +41,8 @@ onMounted(() => {
             <h1 class="footer__logo">COSMETICS</h1>
 
             <p class="footer__text">
-              У нас є косметика, яка підкреслить твій стиль і якою ти будеш
-              пишатися. Для жінок і чоловіків.
+              Косметика, яка відповідає вашому стилю та стандартам якості.
+              Догляд і б’юті-засоби для жінок і чоловіків.
             </p>
 
             <div class="footer__socials">
@@ -58,11 +58,11 @@ onMounted(() => {
             </div>
           </div>
           <div class="footer__links-desktop">
-            <!-- <FooterLinksSection /> -->
+            <FooterLinksSection />
           </div>
 
           <div class="footer__links-mobile">
-            <!-- <FooterLinksSection /> -->
+            <FooterLinksSection />
           </div>
         </nav>
 
