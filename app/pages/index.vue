@@ -335,6 +335,11 @@ const reviews = [
 <template>
   <HomeTop />
   <HomeBrands />
+  <ProductList
+    title="NEW ARRIVALS"
+    :data="newArrivalsData"
+    view-all-link="/shop#new-arrivals"
+  />
 </template>
 
 <style lang="scss" scoped></style>

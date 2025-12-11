@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{ options?: any }>()
 
-const { current, total, next, prev } = useEmblaCarousel(props.options)
+const { viewport, current, total, next, prev } = useEmblaCarousel(props.options)
 </script>
 
 <template>
