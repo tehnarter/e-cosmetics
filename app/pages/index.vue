@@ -11,15 +11,16 @@ const topSellingData = computed(() => products.topSelling)
   <HomeTop />
   <HomeBrands />
   <ProductList
-    title="NEW ARRIVALS"
+    title="НОВІ НАДХОДЖЕННЯ"
     :data="newArrivalsData"
     view-all-link="/shop#new-arrivals"
   />
   <ProductList
-    title="NEW ARRIVALS"
+    title="ХІТ ПРОДАЖІВ"
     :data="topSellingData"
     view-all-link="/shop#new-arrivals"
   />
+  <HomeDressStyle />
 </template>
 
 <style lang="scss" scoped></style>
