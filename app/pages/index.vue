@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useProductsStore } from "~~/stores/products"
+import { useReviewsStore } from "~~/stores/reviews"
 
 const products = useProductsStore()
+const reviewsStore = useReviewsStore()
 
 const newArrivalsData = computed(() => products.newArrivals)
 const topSellingData = computed(() => products.topSelling)
+const reviews = computed(() => reviewsStore.reviews)
 </script>
 
 <template>
@@ -21,6 +24,7 @@ const topSellingData = computed(() => products.topSelling)
     view-all-link="/shop#new-arrivals"
   />
   <HomeDressStyle />
+  <HomeReviews :data="reviews" />
 </template>
 
 <style lang="scss" scoped></style>
