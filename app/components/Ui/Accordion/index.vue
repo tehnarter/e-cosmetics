@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, provide } from "vue"
+import { provide, ref } from "vue"
 
 const props = defineProps<{
   type?: "single" | "multiple"
@@ -8,27 +8,20 @@ const props = defineProps<{
 
 const openItems = ref<string[]>([])
 
-function toggleItem(id: string) {
+function toggleItem(value: string) {
+  const index = openItems.value.indexOf(value)
+
   if (props.type === "single") {
-    if (openItems.value[0] === id && props.collapsible) {
-      openItems.value = []
-    } else {
-      openItems.value = [id]
-    }
-  } else {
-    // multiple
-    if (openItems.value.includes(id)) {
-      openItems.value = openItems.value.filter((v) => v !== id)
-    } else {
-      openItems.value.push(id)
-    }
+    if (index !== -1 && props.collapsible) openItems.value = []
+    else openItems.value = [value]
+    return
   }
+
+  if (index === -1) openItems.value.push(value)
+  else openItems.value.splice(index, 1)
 }
 
-provide("accordion", {
-  openItems,
-  toggleItem,
-})
+provide("accordion", { openItems, toggleItem })
 </script>
 
 <template>
@@ -39,6 +32,9 @@ provide("accordion", {
 
 <style scoped lang="scss">
 .accordion {
+  display: block;
   width: 100%;
+  background: #fff;
+  border-radius: 8px;
 }
 </style>

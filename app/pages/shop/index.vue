@@ -43,6 +43,7 @@ const products = computed(() => [
               <line x1="17" y1="16" x2="23" y2="16"></line>
             </svg>
           </div>
+          <Filters />
         </aside>
 
         <!-- CONTENT -->
