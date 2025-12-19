@@ -21,7 +21,7 @@ onMounted(() => {
     <hr />
 
     <div class="filter-section">
-      <!-- <FiltersPrice /> -->
+      <FiltersPrice />
     </div>
 
     <hr />
@@ -33,13 +33,13 @@ onMounted(() => {
     <hr />
 
     <div class="filter-section">
-      <!-- <FiltersSize /> -->
+      <FiltersSize />
     </div>
 
     <hr />
 
     <div class="filter-section">
-      <!-- <FiltersDressStyle /> -->
+      <FiltersDressStyle />
     </div>
 
     <button type="button" class="apply-btn">Apply Filter</button>
