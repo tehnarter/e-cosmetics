@@ -14,7 +14,12 @@ const products = computed(() => [
   <main class="shop-page">
     <div class="shop-container">
       <hr class="shop-divider" />
-
+      <AppBreadcrumb
+        :items="[
+          { label: 'Головна', to: '/' },
+          { label: 'Магазин', active: true },
+        ]"
+      />
       <div class="shop-layout">
         <!-- SIDEBAR -->
         <aside class="shop-sidebar">
