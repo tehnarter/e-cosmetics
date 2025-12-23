@@ -109,6 +109,34 @@ const products = computed(() => [
           </div>
 
           <hr class="shop-divider" />
+          <!-- PAGINATION -->
+          <UiPagination class="pagination">
+            <UiPaginationPrevious>← Назад</UiPaginationPrevious>
+
+            <UiPaginationContent>
+              <UiPaginationItem>
+                <UiPaginationLink isActive>1</UiPaginationLink>
+              </UiPaginationItem>
+
+              <UiPaginationItem>
+                <UiPaginationLink>2</UiPaginationLink>
+              </UiPaginationItem>
+
+              <UiPaginationItem class="hidden lg">
+                <UiPaginationLink>3</UiPaginationLink>
+              </UiPaginationItem>
+
+              <UiPaginationItem>
+                <UiPaginationEllipsis />
+              </UiPaginationItem>
+
+              <UiPaginationItem>
+                <UiPaginationLink>10</UiPaginationLink>
+              </UiPaginationItem>
+            </UiPaginationContent>
+
+            <UiPaginationNext> Вперед → </UiPaginationNext>
+          </UiPagination>
         </section>
       </div>
     </div>
@@ -278,5 +306,11 @@ const products = computed(() => [
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
