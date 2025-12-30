@@ -98,20 +98,20 @@ const data = [
 
       <!-- SEARCH -->
       <div class="desktop-search">
-        <img src="/icons/search.svg" />
+        <SvgoSearch />
         <input type="search" placeholder="Пошук продуктів..." />
       </div>
 
       <!-- RIGHT -->
       <div class="right-group">
         <NuxtLink to="/search" class="mobile-search">
-          <img src="/icons/search-black.svg" />
+          <SvgoSearchblack />
         </NuxtLink>
 
         <HeaderCartBtn />
 
         <NuxtLink to="/#signin">
-          <img src="/icons/user.svg" />
+          <SvgoUser class="icons-user" />
         </NuxtLink>
       </div>
     </div>
@@ -188,6 +188,7 @@ const data = [
 
   @media (min-width: 768px) {
     display: flex;
+    column-gap: 0.75rem;
     background: #f0f0f0;
     border-radius: 6px;
     padding: 6px 10px;
@@ -231,5 +232,9 @@ const data = [
   @media (min-width: 768px) {
     display: none;
   }
+}
+.icons-user {
+  width: 22px;
+  height: 22px;
 }
 </style>

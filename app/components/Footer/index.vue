@@ -5,14 +5,12 @@ const socials = [
   { id: 3, icon: "SvgoTwitter", url: "https://twitter.com" },
   { id: 4, icon: "SvgoTiktok", url: "https://tiktok.com" },
 ]
-import { onMounted } from "vue"
-import gsap from "gsap"
 const paymentBadges = [
-  { id: 1, srcUrl: "/icons/Visa.svg" },
-  { id: 2, srcUrl: "/icons/mastercard.svg" },
-  { id: 3, srcUrl: "/icons/paypal.svg" },
-  { id: 4, srcUrl: "/icons/applePay.svg" },
-  { id: 5, srcUrl: "/icons/googlePay.svg" },
+  { id: 1, icon: "SvgoVisa", label: "Visa" },
+  { id: 2, icon: "SvgoMastercard", label: "Mastercard" },
+  { id: 3, icon: "SvgoPaypal", label: "PayPal" },
+  { id: 4, icon: "SvgoApplepay", label: "Apple Pay" },
+  { id: 5, icon: "SvgoGooglepay", label: "Google Pay" },
 ]
 
 // OPTIONAL ANIMATION (тільки на клієнті)
@@ -74,13 +72,13 @@ onMounted(() => {
             <span
               v-for="item in paymentBadges"
               :key="item.id"
+              :aria-label="item.label"
               class="footer__payment-item"
             >
-              <NuxtImg
-                :src="item.srcUrl"
-                width="33"
-                height="15"
-                alt="payment"
+              <component
+                :is="item.icon"
+                aria-hidden="true"
+                filled
                 class="footer__payment-img"
               />
             </span>
@@ -230,7 +228,7 @@ onMounted(() => {
   }
 
   &__payment-img {
-    max-height: 15px;
+    width: 33px;
   }
 }
 </style>

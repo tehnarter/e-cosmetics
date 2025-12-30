@@ -4,8 +4,7 @@ const cart = useState("cart") // { totalQuantities: number }
 
 <template>
   <NuxtLink to="/cart" class="cart-btn">
-    <img src="/icons/cart.svg" alt="cart" class="cart-btn__icon" />
-
+    <SvgoCart class="cart-btn__icon" />
     <span v-if="cart?.value?.totalQuantities > 0" class="cart-btn__badge">
       {{ cart.value.totalQuantities }}
     </span>
