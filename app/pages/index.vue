@@ -24,6 +24,7 @@ const reviews = computed(() => reviewsStore.reviews)
     view-all-link="/shop#new-arrivals"
   />
   <HomeDressStyle />
+
   <HomeReviews :data="reviews" />
 </template>
 

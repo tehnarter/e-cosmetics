@@ -25,7 +25,21 @@ const { blurChild, isAction = false, isDate, data } = props
 
     <div class="header">
       <UiRating :value="data.rating" :readonly="true" :maxStars="5" />
-      <button v-if="isAction" class="action-btn">…</button>
+      <UiButton v-if="isAction" type="button" class="action-btn"
+        ><svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          class="text-muted-xl"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="256" cy="256" r="48"></circle>
+          <circle cx="416" cy="256" r="48"></circle>
+          <circle cx="96" cy="256" r="48"></circle></svg
+      ></UiButton>
     </div>
 
     <div class="user">
@@ -35,7 +49,7 @@ const { blurChild, isAction = false, isDate, data } = props
 
     <p class="content">{{ data.content }}</p>
 
-    <p v-if="isDate" class="date">Posted on {{ data.date }}</p>
+    <p v-if="isDate" class="date">Опубліковано {{ data.date }}</p>
   </div>
 </template>
 
@@ -102,5 +116,9 @@ const { blurChild, isAction = false, isDate, data } = props
     color: rgba(0, 0, 0, 0.6);
     margin-top: 16px;
   }
+}
+.text-muted-xl {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 1.5rem;
 }
 </style>

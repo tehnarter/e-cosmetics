@@ -45,11 +45,14 @@ watchEffect(() => {
         <!-- <Header :data="productData" /> -->
       </section>
 
-      <!-- <Tabs /> -->
+      <Tabs />
     </div>
 
     <div class="product-page__related">
-      <ProductList title="You might also like" :data="relatedProductData" />
+      <ProductList
+        title="Вам також може сподобатися"
+        :data="relatedProductData"
+      />
     </div>
   </main>
 </template>
