@@ -32,6 +32,8 @@ const active = ref<number>(1)
 
     <div class="tabs__content">
       <TabsProductDetailsContent v-if="active === 1" />
+      <TabsReviewsContent v-else-if="active === 2" />
+      <TabsFaqContent v-else />
     </div>
   </div>
 </template>
