@@ -1,31 +1,43 @@
 <script setup lang="ts">
 import { useProductsStore } from "~~/stores/products"
+import type { Product } from "~~/types/product.types"
 
 const route = useRoute()
 const productsStore = useProductsStore()
 
-const productId = computed(() => Number(route.params.slug?.[0]))
+const productId = computed<number | null>(() => {
+  const slug = route.params.slug
+  const id = Array.isArray(slug) ? slug[0] : slug
+  return id ? Number(id) : null
+})
 
-const relatedProductData = computed(() => productsStore.relatedProducts)
-
-const allProducts = computed(() => [
+const allProducts = computed<Product[]>(() => [
   ...productsStore.newArrivals,
   ...productsStore.topSelling,
   ...productsStore.relatedProducts,
 ])
 
-const productData = computed(() =>
-  allProducts.value.find((p) => p.id === productId.value)
-)
-
-watchEffect(() => {
-  if (allProducts.value.length > 0 && !productData.value) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: "Product not found",
-    })
-  }
+const productData = computed<Product | null>(() => {
+  if (!productId.value) return null
+  return allProducts.value.find((p) => p.id === productId.value) ?? null
 })
+
+if (process.client) {
+  watch(
+    () => allProducts.value.length,
+    (len) => {
+      if (len && !productData.value) {
+        throw createError({
+          statusCode: 404,
+          statusMessage: "Product not found",
+        })
+      }
+    },
+    { immediate: true }
+  )
+}
+
+const relatedProductData = computed(() => productsStore.relatedProducts)
 </script>
 
 <template>
@@ -37,12 +49,12 @@ watchEffect(() => {
         :items="[
           { label: 'Головна', to: '/' },
           { label: 'Магазин', to: '/shop' },
-          { label: productData?.title ?? 'product', active: true },
+          { label: productData?.title ?? 'Product', active: true },
         ]"
       />
 
-      <section class="product-page__header">
-        <!-- <Header :data="productData" /> -->
+      <section v-if="productData" class="product-page__header">
+        <Product :data="productData" />
       </section>
 
       <Tabs />
