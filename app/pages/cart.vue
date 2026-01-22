@@ -1,0 +1,196 @@
+<script setup lang="ts">
+import { useCartStore } from "~~/stores/cart"
+
+const cartStore = useCartStore()
+
+const cart = computed(() => cartStore.cart)
+const totalPrice = computed(() => cartStore.totalPrice)
+const adjustedTotalPrice = computed(() => cartStore.adjustedTotalPrice)
+
+const discountPercent = computed(() => {
+  const total = totalPrice.value
+  if (!total) return 0
+  return Math.round(((total - adjustedTotalPrice.value) / total) * 100)
+})
+
+const pageRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (!process.client || !pageRef.value) return
+
+  import("gsap").then(({ gsap }) => {
+    gsap.from(pageRef.value!.querySelectorAll(".cart-animate"), {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out",
+    })
+  })
+})
+</script>
+
+<template>
+  <main ref="pageRef" class="cart-page">
+    <div class="cart-container">
+      <template v-if="cart && cart.items.length">
+        <AppBreadcrumb
+          class="cart-animate"
+          :items="[
+            { label: 'Головна', to: '/' },
+            { label: 'Корзина', active: true },
+          ]"
+        />
+
+        <h2 class="cart-title cart-animate">Ваші товари</h2>
+
+        <div class="cart-layout">
+          <!-- PRODUCTS -->
+
+          <!-- SUMMARY -->
+        </div>
+      </template>
+
+      <!-- EMPTY -->
+      <div v-else class="cart-empty cart-animate">
+        <SvgoBasketExclamation filled />
+        <span>Ваш кошик порожній.</span>
+        <NuxtLink to="/shop">
+          <UiButton class="empty-cart-btn">Магазин</UiButton>
+        </NuxtLink>
+      </div>
+    </div>
+  </main>
+</template>
+
+<style lang="scss" scoped>
+.cart-page {
+  padding-bottom: 80px;
+}
+
+.cart-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.cart-title {
+  font-family: var(--font-integral);
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.cart-layout {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.cart-products,
+.cart-summary {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.cart-products {
+  flex: 1;
+  padding: 24px;
+
+  hr {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 16px 0;
+  }
+}
+
+.cart-summary {
+  max-width: 505px;
+  padding: 24px;
+}
+
+.summary-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+
+  strong {
+    color: #000;
+  }
+
+  &.total {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+.discount {
+  color: #dc2626;
+}
+
+.promo {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.apply-btn {
+  width: 120px;
+}
+
+.checkout-btn {
+  margin-top: 24px;
+  width: 100%;
+  height: 60px;
+
+  .arrow {
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover .arrow {
+    transform: translateX(4px);
+  }
+}
+
+.cart-empty {
+  margin-top: 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d1d5db;
+
+  svg {
+    font-size: 64px;
+  }
+
+  span {
+    margin-bottom: 16px;
+  }
+}
+
+.empty-cart-btn {
+  display: inline-block;
+  text-align: center;
+  width: 96px;
+  border-radius: 9999px;
+  background-color: #0f172a;
+}
+</style>
