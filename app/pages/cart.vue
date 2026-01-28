@@ -3,7 +3,7 @@ import { useCartStore } from "~~/stores/cart"
 
 const cartStore = useCartStore()
 
-const cart = computed(() => cartStore.cart)
+const items = computed(() => cartStore.items)
 const totalPrice = computed(() => cartStore.totalPrice)
 const adjustedTotalPrice = computed(() => cartStore.adjustedTotalPrice)
 
@@ -27,13 +27,14 @@ onMounted(() => {
       ease: "power2.out",
     })
   })
+  console.log("STORE CART:", cartStore.cart)
 })
 </script>
 
 <template>
   <main ref="pageRef" class="cart-page">
     <div class="cart-container">
-      <template v-if="cart && cart.items.length">
+      <template v-if="items.length">
         <AppBreadcrumb
           class="cart-animate"
           :items="[
@@ -42,19 +43,70 @@ onMounted(() => {
           ]"
         />
 
-        <h2 class="cart-title cart-animate">Ваші товари</h2>
+        <h2 class="cart-title cart-animate">your cart</h2>
 
         <div class="cart-layout">
           <!-- PRODUCTS -->
+          <div class="cart-products cart-animate">
+            <template v-for="(product, idx) in items" :key="idx">
+              <CartProductCard :data="product" />
+            </template>
+          </div>
 
           <!-- SUMMARY -->
+          <div class="cart-summary cart-animate">
+            <h6 class="summary-title">Order Summary</h6>
+
+            <div class="summary-list">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <strong>${{ totalPrice }}</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Discount (-{{ discountPercent }}%)</span>
+                <strong class="discount">
+                  -${{ Math.round(totalPrice - adjustedTotalPrice) }}
+                </strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Delivery Fee</span>
+                <strong>Free</strong>
+              </div>
+
+              <hr />
+
+              <div class="summary-row total">
+                <span>Total</span>
+                <strong>${{ Math.round(adjustedTotalPrice) }}</strong>
+              </div>
+            </div>
+
+            <div class="promo">
+              <UiInputGroup>
+                <UiInputGroupText>
+                  <SvgoPromo filled class="promo__svg" />
+                </UiInputGroupText>
+
+                <UiInputGroupInput placeholder="Add promo code" />
+              </UiInputGroup>
+
+              <UiButton class="apply-btn">Apply</UiButton>
+            </div>
+
+            <UiButton class="checkout-btn">
+              Go to Checkout
+              <SvgoArrow class="arrow" />
+            </UiButton>
+          </div>
         </div>
       </template>
 
       <!-- EMPTY -->
       <div v-else class="cart-empty cart-animate">
         <SvgoBasketExclamation filled />
-        <span>Ваш кошик порожній.</span>
+        <span>Ваша корзина пуста.</span>
         <NuxtLink to="/shop">
           <UiButton class="empty-cart-btn">Магазин</UiButton>
         </NuxtLink>
@@ -139,29 +191,37 @@ onMounted(() => {
     font-size: 22px;
     font-weight: 700;
   }
-}
-
-.discount {
-  color: #dc2626;
+  .discount {
+    color: #dc2626;
+  }
 }
 
 .promo {
   display: flex;
   gap: 12px;
   margin-top: 20px;
+  &__svg {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 1.5rem;
+  }
 }
 
 .apply-btn {
   width: 120px;
+  background-color: #0f172a;
+  border-radius: 18px;
 }
 
 .checkout-btn {
   margin-top: 24px;
   width: 100%;
   height: 60px;
+  background-color: #0f172a;
+  border-radius: 35px;
 
   .arrow {
-    margin-left: 8px;
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
     transition: transform 0.2s ease;
   }
 
@@ -187,8 +247,6 @@ onMounted(() => {
 }
 
 .empty-cart-btn {
-  display: inline-block;
-  text-align: center;
   width: 96px;
   border-radius: 9999px;
   background-color: #0f172a;
