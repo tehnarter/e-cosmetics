@@ -5,7 +5,7 @@ export type Color = {
   code: string
 }
 
-export const useProductsStore = defineStore("products", {
+export const useProductsStore = defineStore("products-cart", {
   state: () => ({
     colorSelection: {
       name: "Brown",
