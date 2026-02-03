@@ -1,20 +1,4 @@
-<template>
-  <div class="rating">
-    <span
-      v-for="n in maxStars"
-      :key="n"
-      class="star"
-      :class="{ filled: n <= Math.round(value) }"
-      @click="onClick(n)"
-    >
-      ★
-    </span>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ref, defineProps, defineEmits } from "vue"
-
 interface RatingProps {
   value?: number
   maxStars?: number
@@ -33,6 +17,20 @@ const onClick = (n: number) => {
   emit("update:value", n)
 }
 </script>
+
+<template>
+  <div class="rating">
+    <span
+      v-for="n in maxStars"
+      :key="n"
+      class="star"
+      :class="{ filled: n <= Math.round(value) }"
+      @click="onClick(n)"
+    >
+      ★
+    </span>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .rating {

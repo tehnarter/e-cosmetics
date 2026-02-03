@@ -14,7 +14,7 @@ const select = inject<any>("ui-select")
 .select-content {
   position: absolute;
   margin-top: 6px;
-  background: #fff;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 6px;

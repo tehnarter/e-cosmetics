@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { inject } from "vue"
 const sheet = inject<any>("sheet")
-if (!sheet) {
-  // safety: якщо injection не працює, чтобы видеть в консолі
-  console.warn("UiSheetTrigger: sheet not provided")
-}
 </script>
 
 <template>

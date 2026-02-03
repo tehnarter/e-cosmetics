@@ -34,7 +34,7 @@ provide("accordion", { openItems, toggleItem })
 .accordion {
   display: block;
   width: 100%;
-  background: #fff;
+
   border-radius: 8px;
 }
 </style>

@@ -44,12 +44,7 @@ function toggle() {
   background: transparent;
   padding: 12px 16px;
   font-size: 16px;
-  color: #111;
   font-weight: 600;
-
-  &:hover {
-    background: #f5f5f5;
-  }
 
   &__icon {
     width: 1rem; // Tailwind w-4

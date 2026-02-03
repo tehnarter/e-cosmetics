@@ -10,7 +10,9 @@ defineExpose({ isOpen, toggle })
 
 <template>
   <li class="nav-item">
-    <slot :isOpen="isOpen" :toggle="toggle" />
+    <client-only>
+      <slot :isOpen="isOpen" :toggle="toggle" />
+    </client-only>
   </li>
 </template>
 

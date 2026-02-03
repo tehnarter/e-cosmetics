@@ -10,7 +10,6 @@ const { viewport, current, total, next, prev } = useEmblaCarousel(props.options)
     <div class="embla__viewport" ref="viewport">
       <slot />
     </div>
-
     <slot name="pagination" :current="current" :total="total" />
   </div>
 </template>

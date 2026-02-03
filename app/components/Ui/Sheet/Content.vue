@@ -1,64 +1,14 @@
 <script setup lang="ts">
-import { inject, onMounted, onBeforeUnmount, ref, watch } from "vue"
-
 const sheet = inject<any>("sheet")
 const panel = ref<HTMLElement | null>(null)
-
-const ignoreClick = ref(false)
-
-/* ===== Ігнор першого кліку ===== */
-watch(
-  () => sheet?.open.value,
-  (val) => {
-    if (val) {
-      ignoreClick.value = true
-      setTimeout(() => (ignoreClick.value = false), 50)
-    }
-  }
-)
-
-/* ===== КЛИК ПОЗА ПАНЕЛЛЮ ===== */
-function onDocClick(e: MouseEvent) {
-  if (ignoreClick.value) return
-  if (!sheet?.open.value) return
-  if (!panel.value) return
-
-  if (!panel.value.contains(e.target as Node)) {
-    sheet.hide()
-  }
-}
-
-/* ===== ESC ===== */
-function onKey(e: KeyboardEvent) {
-  if (e.key === "Escape" && sheet?.open.value) {
-    sheet.hide()
-  }
-}
-
-/* ===== CLOSE BUTTON ===== */
-function onClose() {
-  sheet.hide()
-}
-
-onMounted(() => {
-  document.addEventListener("click", onDocClick)
-  document.addEventListener("keydown", onKey)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener("click", onDocClick)
-  document.removeEventListener("keydown", onKey)
-})
 </script>
 
 <template>
   <transition name="slide">
     <div v-if="sheet?.open.value" class="sheet-wrapper">
-      <div class="sheet-overlay"></div>
-
       <aside ref="panel" class="sheet-content" role="dialog" aria-modal="true">
         <div class="sheet-close-wrapper">
-          <button class="close-btn" @click="onClose" aria-label="Close">
+          <button class="close-btn" @click="sheet?.hide()" aria-label="Close">
             ✕
           </button>
         </div>
@@ -89,7 +39,7 @@ onBeforeUnmount(() => {
   top: 0;
   width: 320px;
   height: 100%;
-  background: #fff;
+  background: var(--mobile-aside);
   box-shadow: 2px 0 18px rgba(0, 0, 0, 0.12);
   padding: 20px;
   overflow-y: auto;

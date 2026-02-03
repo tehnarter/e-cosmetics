@@ -26,7 +26,7 @@ onUnmounted(() => window.removeEventListener("keydown", onKey))
   position: fixed;
   bottom: 0;
   inset-inline: 0;
-  background: #fff;
+  background: var(--mobile-background);
   border-radius: 16px 16px 0 0;
   z-index: 50;
   max-height: 90%;

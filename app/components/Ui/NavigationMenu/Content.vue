@@ -17,8 +17,9 @@ const props = defineProps<{
   left: 0;
   z-index: 30;
   padding: 16px;
-  background: #fff;
+  background-color: var(--search-background);
   border-radius: 8px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  transition: background-color 3s ease;
 }
 </style>

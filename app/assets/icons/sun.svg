@@ -1,0 +1,11 @@
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
+    <style>.a{fill:#F0C419;}</style>
+    <g fill="none">
+      <g class="a">
+        <circle cx="7.5" cy="7.5" r="5"/>
+        <circle cx="7.5" cy="7.5" r="3.8" fill="#EDE21B"/>
+      </g>
+    </g>
+  </svg>
+
