@@ -1,8 +1,8 @@
-import type { Discount } from "./product.types"
+import type { Discount, LocalizedText } from "./product.types"
 
 export type CartItem = {
   id: number
-  name: string
+  name: LocalizedText
   srcUrl: string
   price: number
   attributes: string[]

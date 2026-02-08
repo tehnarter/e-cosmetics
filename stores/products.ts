@@ -8,7 +8,14 @@ export const useProductsStore = defineStore("products", {
     newArrivals: [
       {
         id: 1,
-        title: "Зволожувальний крем для обличчя",
+        title: {
+          uk: "Зволожувальний крем для обличчя",
+          en: "Moisturizing Face Cream",
+        },
+        description: {
+          uk: "Найкращий зволожувальний крем для обличчя з природними компонентами.",
+          en: "The best moisturizing face cream with natural ingredients.",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 299,
@@ -17,7 +24,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 2,
-        title: "Гіалуронова сироватка",
+        title: {
+          uk: "Гіалуронова сироватка",
+          en: "Hyaluronic Serum",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 350,
@@ -26,7 +36,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 3,
-        title: "Очищувальна пінка для вмивання",
+        title: {
+          uk: "Очищувальна пінка для вмивання",
+          en: "Cleansing Facial Foam",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 220,
@@ -35,7 +48,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 4,
-        title: "Патчі під очі з золотом",
+        title: {
+          uk: "Патчі під очі з золотом",
+          en: "Gold Under-Eye Patches",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 180,
@@ -44,7 +60,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 5,
-        title: "Тональний крем з SPF 30",
+        title: {
+          uk: "Тональний крем з SPF 30",
+          en: "Foundation with SPF 30",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 430,
@@ -53,7 +72,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 6,
-        title: "Матова губна помада",
+        title: {
+          uk: "Матова губна помада",
+          en: "Matte Lipstick",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 199,
@@ -62,7 +84,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 7,
-        title: "Лак для нігтів нюдовий",
+        title: {
+          uk: "Лак для нігтів нюдовий",
+          en: "Nude Nail Polish",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 150,
@@ -71,7 +96,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 8,
-        title: "Антивікова сироватка",
+        title: {
+          uk: "Антивікова сироватка",
+          en: "Anti-Aging Serum",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 520,
@@ -80,7 +108,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 9,
-        title: "Скраб для тіла кавовий",
+        title: {
+          uk: "Скраб для тіла кавовий",
+          en: "Coffee Body Scrub",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 160,
@@ -89,7 +120,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 10,
-        title: "Міцелярна вода",
+        title: {
+          uk: "Міцелярна вода",
+          en: "Micellar Water",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 190,
@@ -101,7 +135,10 @@ export const useProductsStore = defineStore("products", {
     topSelling: [
       {
         id: 11,
-        title: "Крем для рук живильний",
+        title: {
+          uk: "Крем для рук живильний",
+          en: "Nourishing Hand Cream",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 120,
@@ -110,7 +147,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 12,
-        title: "Шампунь проти випадіння волосся",
+        title: {
+          uk: "Шампунь проти випадіння волосся",
+          en: "Anti Hair Loss Shampoo",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 260,
@@ -119,7 +159,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 13,
-        title: "Бальзам для губ",
+        title: {
+          uk: "Бальзам для губ",
+          en: "Lip Balm",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 99,
@@ -128,7 +171,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 14,
-        title: "Кондиціонер для волосся",
+        title: {
+          uk: "Кондиціонер для волосся",
+          en: "Hair Conditioner",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 230,
@@ -137,7 +183,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 15,
-        title: "Сироватка проти акне",
+        title: {
+          uk: "Сироватка проти акне",
+          en: "Acne Treatment Serum",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 310,
@@ -146,7 +195,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 16,
-        title: "Маска для обличчя з вугіллям",
+        title: {
+          uk: "Маска для обличчя з вугіллям",
+          en: "Charcoal Face Mask",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 140,
@@ -155,7 +207,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 17,
-        title: "Парфумована вода жіноча",
+        title: {
+          uk: "Парфумована вода жіноча",
+          en: "Women’s Perfume",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 680,
@@ -164,7 +219,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 18,
-        title: "Маска для волосся кератинова",
+        title: {
+          uk: "Маска для волосся кератинова",
+          en: "Keratin Hair Mask",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 250,
@@ -173,7 +231,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 19,
-        title: "Туш для вій об'ємна",
+        title: {
+          uk: "Туш для вій об'ємна",
+          en: "Volumizing Mascara",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 220,
@@ -182,7 +243,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 20,
-        title: "Олія для кутикули",
+        title: {
+          uk: "Олія для кутикули",
+          en: "Cuticle Oil",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 130,
@@ -194,7 +258,10 @@ export const useProductsStore = defineStore("products", {
     relatedProducts: [
       {
         id: 21,
-        title: "Гель для брів фіксуючий",
+        title: {
+          uk: "Гель для брів фіксуючий",
+          en: "Brow Fixing Gel",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 160,
@@ -203,7 +270,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 22,
-        title: "Палетка тіней нейтральних",
+        title: {
+          uk: "Палетка тіней нейтральних",
+          en: "Neutral Eyeshadow Palette",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 480,
@@ -212,7 +282,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 23,
-        title: "Праймер під макіяж",
+        title: {
+          uk: "Праймер під макіяж",
+          en: "Makeup Primer",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 210,
@@ -221,7 +294,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 24,
-        title: "Рум'яна кремові",
+        title: {
+          uk: "Рум'яна кремові",
+          en: "Cream Blush",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 170,
@@ -230,7 +306,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 25,
-        title: "База під тіні",
+        title: {
+          uk: "База під тіні",
+          en: "Eyeshadow Base",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 190,
@@ -239,7 +318,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 26,
-        title: "Матуючий тональний крем",
+        title: {
+          uk: "Матуючий тональний крем",
+          en: "Matte Foundation",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 410,
@@ -248,7 +330,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 27,
-        title: "Олія для тіла ароматизована",
+        title: {
+          uk: "Олія для тіла ароматизована",
+          en: "Scented Body Oil",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 250,
@@ -257,7 +342,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 28,
-        title: "Крем навколо очей",
+        title: {
+          uk: "Крем навколо очей",
+          en: "Eye Cream",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 300,
@@ -266,7 +354,10 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 29,
-        title: "Гель для вмивання з алое",
+        title: {
+          uk: "Гель для вмивання з алое",
+          en: "Aloe Facial Cleanser",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 170,
@@ -275,25 +366,16 @@ export const useProductsStore = defineStore("products", {
       },
       {
         id: 30,
-        title: "Спрей для волосся термозахисний",
+        title: {
+          uk: "Спрей для волосся термозахисний",
+          en: "Heat Protection Hair Spray",
+        },
         srcUrl: placeholderImg,
         gallery: [placeholderImg],
         price: 260,
         discount: { amount: 0, percentage: 10 },
         rating: 4.7,
       },
-    ],
-
-    reviews: [
-      {
-        id: 1,
-        user: "Олена К.",
-        content:
-          "«Довго не могла знайти косметику, яка підійшла б моїй чутливій шкірі, аж поки не відкрила для себе ваш бренд...»",
-        rating: 5,
-        date: "14 грудня 2025",
-      },
-      // ... інші відгуки
     ],
   }),
 })

@@ -3,9 +3,16 @@ export type Discount = {
   percentage: number
 }
 
+// Локалізований текст
+export type LocalizedText = {
+  uk: string
+  en: string
+}
+
 export type Product = {
   id: number
-  title: string
+  title: LocalizedText
+  description: LocalizedText
   srcUrl: string
   gallery?: string[]
   price: number

@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2025-11-26",
+  compatibilityDate: "2026-02-01",
   typescript: {
     shim: false,
   },
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
 
   app: {
     // layoutTransition: { name: "layout", mode: "out-in" },
-    // pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       charset: "utf-8",
       title: "e-cosmetics",
@@ -73,39 +73,39 @@ export default defineNuxtConfig({
       ],
     },
   },
-  // i18n: {
-  //   lazy: true, // переклади завантажуються динамічно, лише при потребі → економія пам’яті
-  //   langDir: "locales", // папка, де лежать файли перекладів для кожної локалі
-  //   strategy: "prefix_except_default", // prefix - всі локалі отримують префікс у URL: /ua/, /en/, /pl/, /ru/
-  //   defaultLocale: "ua", // мова за замовчуванням → використовується для root та генерації лінків
-  //   trailingSlash: true, // додає слеш у кінці URL → /ua/ замість /ua
-  //   baseUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://example.com",
+  i18n: {
+    lazy: true, // переклади завантажуються динамічно, лише при потребі → економія пам’яті
+    langDir: "locales", // папка, де лежать файли перекладів для кожної локалі
+    strategy: "prefix_except_default", // prefix - всі локалі отримують префікс у URL: /ua/, /en/, /pl/, /ru/
+    defaultLocale: "ua", // мова за замовчуванням → використовується для root та генерації лінків
+    trailingSlash: true, // додає слеш у кінці URL → /ua/ замість /ua
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://example.com",
 
-  //   locales: [
-  //     {
-  //       code: "ua",
-  //       iso: "uk-UA",
-  //       language: "uk",
-  //       file: "ua.json",
-  //       name: "Українська",
-  //       isCatchallLocale: true, //  головна мова, яка отримає hreflang="x-default"
-  //     },
-  //     {
-  //       code: "en",
-  //       iso: "en-US",
-  //       language: "en",
-  //       file: "en.json",
-  //       name: "English",
-  //     },
-  //   ],
-  //   detectBrowserLanguage: {
-  //     useCookie: true,
-  //     cookieKey: "i18n_redirected",
-  //     alwaysRedirect: false, // true завжди примусово редіректити на мову браузера
-  //     redirectOn: "root", // тільки редірект з /
-  //     fallbackLocale: "ua",
-  //   },
-  // },
+    locales: [
+      {
+        code: "ua",
+        iso: "uk-UA",
+        language: "uk",
+        file: "ua.json",
+        name: "Українська",
+        isCatchallLocale: true, //  головна мова, яка отримає hreflang="x-default"
+      },
+      {
+        code: "en",
+        iso: "en-US",
+        language: "en",
+        file: "en.json",
+        name: "English",
+      },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      alwaysRedirect: false, // true завжди примусово редіректити на мову браузера
+      redirectOn: "root", // тільки редірект з /
+      fallbackLocale: "ua",
+    },
+  },
   // pwa: {
   //   registerType: "autoUpdate", //  "autoUpdate" Автооновлення PWA при зміні контенту
   //   //"prompt" (за замовчуванням) Ручне оновлення

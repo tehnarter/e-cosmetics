@@ -1,16 +1,6 @@
 import { defineStore } from "pinia"
 import { compareArrays } from "@/utils/cart"
-import type { Discount } from "~~/types/product.types"
-
-export type CartItem = {
-  id: number
-  name: string
-  srcUrl: string
-  price: number
-  attributes: string[]
-  discount: Discount
-  quantity: number
-}
+import type { CartItem } from "~~/types/cart.types"
 
 export const useCartStore = defineStore("cart", {
   // 1️⃣ STATE
