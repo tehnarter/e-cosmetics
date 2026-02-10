@@ -1,32 +1,52 @@
 <script setup lang="ts">
-interface Review {
+import { useI18n } from "#imports"
+
+interface ReviewCard {
   user: string
-  rating: number
   content: string
+  rating: number
   date?: string
 }
 
+interface LocalizedReview {
+  uk: ReviewCard
+  en: ReviewCard
+}
+
 const props = defineProps<{
+  data: LocalizedReview
   blurChild?: unknown
   isAction?: boolean
   isDate?: boolean
-  data: Review
   className?: string
 }>()
 
-const { blurChild, isAction = false, isDate, data } = props
+const { blurChild, isAction = false, isDate, data, className } = props
+const { locale } = useI18n()
+
+// Мапінг коду локалі на ключ LocalizedReview
+const langMap: Record<string, keyof LocalizedReview> = {
+  ua: "uk",
+  en: "en",
+}
+
+// Обчислюємо поточний відгук з урахуванням локалі
+const review = computed<ReviewCard>(() => {
+  const key = langMap[locale.value] || "uk" // якщо не знайдено — default uk
+  return data?.[key] ?? { user: "", content: "", rating: 0, date: "" }
+})
 </script>
 
 <template>
-  <div class="review-card">
+  <div :class="['review-card', className]">
     <div v-if="blurChild" class="blur-layer">
       <slot name="blur">{{ blurChild }}</slot>
     </div>
 
     <div class="header">
-      <UiRating :value="data.rating" :readonly="true" :maxStars="5" />
-      <UiButton v-if="isAction" type="button" class="action-btn"
-        ><svg
+      <UiRating :value="review.rating" :readonly="true" :maxStars="5" />
+      <UiButton v-if="isAction" type="button" class="action-btn">
+        <svg
           stroke="currentColor"
           fill="currentColor"
           stroke-width="0"
@@ -38,25 +58,28 @@ const { blurChild, isAction = false, isDate, data } = props
         >
           <circle cx="256" cy="256" r="48"></circle>
           <circle cx="416" cy="256" r="48"></circle>
-          <circle cx="96" cy="256" r="48"></circle></svg
-      ></UiButton>
+          <circle cx="96" cy="256" r="48"></circle>
+        </svg>
+      </UiButton>
     </div>
 
     <div class="user">
-      <strong>{{ data.user }}</strong>
+      <strong>{{ review.user }}</strong>
       <span class="checkmark">✔</span>
     </div>
 
-    <p class="content">{{ data.content }}</p>
+    <p class="content">{{ review.content }}</p>
 
-    <p v-if="isDate" class="date">Опубліковано {{ data.date }}</p>
+    <p v-if="isDate && review.date" class="date">
+      {{ locale.value === "uk" ? "Опубліковано" : "Published" }}
+      {{ review.date }}
+    </p>
   </div>
 </template>
 
 <style scoped lang="scss">
 .review-card {
   position: relative;
-  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 24px;
@@ -117,6 +140,7 @@ const { blurChild, isAction = false, isDate, data } = props
     margin-top: 16px;
   }
 }
+
 .text-muted-xl {
   color: rgba(0, 0, 0, 0.4);
   font-size: 1.5rem;

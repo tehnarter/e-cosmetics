@@ -11,21 +11,23 @@ const reviews = computed(() => reviewsStore.reviews)
 </script>
 
 <template>
-  <HomeTop />
-  <HomeBrands />
-  <ProductList
-    title="НОВІ НАДХОДЖЕННЯ"
-    :data="newArrivalsData"
-    view-all-link="/shop#new-arrivals"
-  />
-  <ProductList
-    title="ХІТ ПРОДАЖІВ"
-    :data="topSellingData"
-    view-all-link="/shop#new-arrivals"
-  />
-  <HomeDressStyle />
+  <main class="page-home">
+    <HomeTop />
+    <HomeBrands />
+    <ProductList
+      title="НОВІ НАДХОДЖЕННЯ"
+      :data="newArrivalsData"
+      view-all-link="/shop#new-arrivals"
+    />
+    <ProductList
+      title="ХІТ ПРОДАЖІВ"
+      :data="topSellingData"
+      view-all-link="/shop#new-arrivals"
+    />
+    <HomeDressStyle />
 
-  <HomeReviews :data="reviews" />
+    <HomeReviews :data="reviews" />
+  </main>
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,18 +1,32 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue"
 import { useCartStore } from "~~/stores/cart"
-
-import type { CartItem } from "~~/stores/cart"
+import { useI18n } from "#imports"
 
 const props = defineProps<{
-  data: CartItem
+  data: any // CartItem з доданим localizedName
 }>()
 
 const cartStore = useCartStore()
 const cardRef = ref<HTMLElement | null>(null)
 
+const { locale } = useI18n()
+const langMap: Record<string, "uk" | "en"> = {
+  ua: "uk",
+  en: "en",
+}
+
+// Локалізоване ім’я продукту
+const localizedName = computed(
+  () =>
+    props.data.localizedName ??
+    props.data.name[langMap[locale.value] ?? "uk"] ??
+    ""
+)
+
 const productLink = computed(
-  () => `/shop/product/${props.data.id}/${props.data.name.split(" ").join("-")}`
+  () =>
+    `/shop/product/${props.data.id}/${localizedName.value.split(" ").join("-")}`
 )
 
 const finalPrice = computed(() => {
@@ -42,6 +56,7 @@ const onQuantityChange = (value: number) => {
 
   cartStore.removeOne(props.data.id, props.data.attributes)
 }
+
 onMounted(async () => {
   if (!process.client || !cardRef.value) return
 
@@ -55,6 +70,7 @@ onMounted(async () => {
   })
 })
 </script>
+
 <template>
   <div ref="cardRef" class="cart-card">
     <NuxtLink :to="productLink" class="cart-card__image">
@@ -70,7 +86,7 @@ onMounted(async () => {
     <div class="cart-card__content">
       <div class="cart-card__top">
         <NuxtLink :to="productLink" class="title">
-          {{ data.name }}
+          {{ localizedName }}
         </NuxtLink>
 
         <button

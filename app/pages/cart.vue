@@ -1,9 +1,25 @@
 <script setup lang="ts">
 import { useCartStore } from "~~/stores/cart"
+import { useI18n } from "#imports"
+import { computed, ref, onMounted } from "vue"
 
 const cartStore = useCartStore()
+const { locale } = useI18n()
 
-const items = computed(() => cartStore.items)
+// мапа для ua → uk
+const langMap: Record<string, "uk" | "en"> = {
+  ua: "uk",
+  en: "en",
+}
+
+// повертаємо items з локалізацією імені
+const items = computed(() =>
+  cartStore.items.map((item) => ({
+    ...item,
+    localizedName: item.name[langMap[locale.value] ?? "uk"] ?? "",
+  }))
+)
+
 const totalPrice = computed(() => cartStore.totalPrice)
 const adjustedTotalPrice = computed(() => cartStore.adjustedTotalPrice)
 
@@ -27,13 +43,12 @@ onMounted(() => {
       ease: "power2.out",
     })
   })
-  console.log("STORE CART:", cartStore.cart)
 })
 </script>
 
 <template>
   <main ref="pageRef" class="cart-page">
-    <div class="cart-container">
+    <div class="cart__container">
       <template v-if="items.length">
         <AppBreadcrumb
           class="cart-animate"
@@ -120,12 +135,6 @@ onMounted(() => {
   padding-bottom: 80px;
 }
 
-.cart-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
 .cart-title {
   font-family: var(--font-integral);
   font-size: 40px;
@@ -147,7 +156,7 @@ onMounted(() => {
 .cart-summary {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  background: #fff;
+  background: var(--cart-background);
 }
 
 .cart-products {

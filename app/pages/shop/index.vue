@@ -12,7 +12,7 @@ const products = computed(() => [
 
 <template>
   <main class="shop-page">
-    <div class="shop-container">
+    <div class="shop__container">
       <hr class="shop-divider" />
       <AppBreadcrumb
         :items="[
@@ -83,7 +83,7 @@ const products = computed(() => [
                       />
                     </svg>
                   </UiSelectTrigger>
-                  <UiSelectContent>
+                  <UiSelectContent class="sort-content">
                     <UiSelectItem value="Найпопулярніші"
                       >Найпопулярніші</UiSelectItem
                     >
@@ -149,11 +149,6 @@ const products = computed(() => [
 }
 
 /* container */
-.shop-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
 
 /* divider */
 .shop-divider {
@@ -278,7 +273,9 @@ const products = computed(() => [
     font-size: 16px;
   }
 }
-
+.sort-content {
+  background: var(--sort-background);
+}
 .sort-icon {
   margin-left: 8px;
   width: 16px;

@@ -3,9 +3,7 @@
     <div class="wrapper">
       <TopBanner />
       <Header />
-      <main class="main">
-        <NuxtPage />
-      </main>
+      <NuxtPage />
       <Footer />
     </div>
   </div>

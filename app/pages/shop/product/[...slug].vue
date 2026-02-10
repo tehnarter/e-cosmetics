@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { useProductsStore } from "~~/stores/products"
 import type { Product } from "~~/types/product.types"
+import { useI18n } from "#imports"
 
 const route = useRoute()
 const productsStore = useProductsStore()
+const { locale } = useI18n()
+
+const langMap: Record<string, keyof Product["title"]> = {
+  ua: "uk",
+  en: "en",
+}
 
 const productId = computed<number | null>(() => {
   const slug = route.params.slug
@@ -20,6 +27,12 @@ const allProducts = computed<Product[]>(() => [
 const productData = computed<Product | null>(() => {
   if (!productId.value) return null
   return allProducts.value.find((p) => p.id === productId.value) ?? null
+})
+
+// Доступ до локалізованого заголовку
+const productTitle = computed<string>(() => {
+  if (!productData.value) return "Product"
+  return productData.value.title[langMap[locale.value] ?? "uk"]
 })
 
 if (process.client) {
@@ -47,9 +60,9 @@ const relatedProductData = computed(() => productsStore.relatedProducts)
 
       <AppBreadcrumb
         :items="[
-          { label: 'Головна', to: '/' },
-          { label: 'Магазин', to: '/shop' },
-          { label: productData?.title ?? 'Product', active: true },
+          { label: locale === 'ua' ? 'Головна' : 'Home', to: '/' },
+          { label: locale === 'ua' ? 'Магазин' : 'Shop', to: '/shop' },
+          { label: productTitle, active: true },
         ]"
       />
 
@@ -71,9 +84,7 @@ const relatedProductData = computed(() => productsStore.relatedProducts)
 
 <style scoped lang="scss">
 .product-page {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 16px;
 
   &__divider {
     height: 1px;

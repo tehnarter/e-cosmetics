@@ -18,7 +18,7 @@ const onSearch = () => {
 </script>
 
 <template>
-  <div class="search-page">
+  <main class="search-page">
     <header class="search-header">
       <input
         v-model="query"
@@ -29,7 +29,7 @@ const onSearch = () => {
       />
     </header>
 
-    <main class="search-content">
+    <div class="search-content">
       <p v-if="!query" class="hint">Почніть вводити запит</p>
 
       <ul v-else-if="results.length" class="results">
@@ -39,21 +39,20 @@ const onSearch = () => {
       </ul>
 
       <p v-else class="empty">Нічого не знайдено</p>
-    </main>
-  </div>
+    </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
 .search-page {
   min-height: 50vh;
-  background: #fff;
 }
 
 .search-header {
   position: sticky;
   top: 0;
   padding: 12px;
-  background: #fff;
+
   border-bottom: 1px solid #eee;
 }
 
@@ -61,6 +60,7 @@ const onSearch = () => {
   width: 100%;
   padding: 12px 14px;
   border-radius: 12px;
+
   border: 1px solid #ddd;
   font-size: 16px;
 }
@@ -72,7 +72,7 @@ const onSearch = () => {
 .hint,
 .empty {
   text-align: center;
-  color: #999;
+
   margin-top: 40px;
 }
 
@@ -85,6 +85,6 @@ const onSearch = () => {
 .result-item {
   padding: 14px;
   border-radius: 12px;
-  background: #f7f7f7;
+  background: var(--search-background);
 }
 </style>
