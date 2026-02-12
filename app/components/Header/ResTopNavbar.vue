@@ -116,11 +116,10 @@ onUnmounted(() => {
           <div v-else class="menu-list">
             <button class="menu-list-btn" @click="toggle(item.label)">
               <span>{{ item.label }}</span>
-              <img
-                src="/icons/keyboardArrowDown.svg"
-                class="arrow"
-                :class="{ open: opened === item.label }"
-              />
+
+              <span class="arrow" :class="{ open: opened === item.label }">
+                <SvgoArrowDown />
+              </span>
             </button>
 
             <div v-show="opened === item.label" class="submenu">
@@ -171,13 +170,6 @@ onUnmounted(() => {
   display: block;
   padding: 12px 0;
   font-size: 18px;
-  color: #000;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-/* Parent menu */
-.menu-list {
-  border-bottom: 1px solid #f0f0f0;
 }
 
 .menu-list-btn {
@@ -194,6 +186,8 @@ onUnmounted(() => {
 .arrow {
   width: 18px;
   height: 18px;
+  transform-box: fill-box;
+  transform-origin: center;
   transition: transform 0.25s ease;
 }
 
@@ -216,12 +210,12 @@ onUnmounted(() => {
 .submenu-title {
   font-size: 16px;
   font-weight: 600;
-  color: #000;
+  color: #555;
 }
 
 .submenu-desc {
   font-size: 13px;
-  color: #777;
+
   line-height: 1.3;
 }
 

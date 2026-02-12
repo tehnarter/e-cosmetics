@@ -26,15 +26,13 @@ const brandsData: { id: string; srcUrl: string }[] = [
 <style lang="scss" scoped>
 .brands {
   background: #000;
+  margin-bottom: 30px;
 
   &__container {
-    max-width: var(--frame-width, 1440px);
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
     padding: 20px 0;
 
     // md

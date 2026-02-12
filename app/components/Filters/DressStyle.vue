@@ -12,11 +12,11 @@ const dressStylesData = [
 <template>
   <UiAccordion v-model="open" type="multiple" collapsible>
     <UiAccordionItem value="filter-style" class="dress">
-      <UiAccordionTrigger class="dress__title">
+      <UiAccordionTrigger value="filter-style" class="dress__title">
         Dress Style
       </UiAccordionTrigger>
 
-      <UiAccordionContent class="dress__content">
+      <UiAccordionContent value="filter-style" class="dress__content">
         <div class="dress__list">
           <NuxtLink
             v-for="(dStyle, idx) in dressStylesData"
@@ -50,10 +50,13 @@ const dressStylesData = [
   border: none;
 
   &__title {
-    color: #000;
     font-weight: 700;
     font-size: 20px;
     padding: 2px 0;
+    &:hover {
+      text-decoration: none;
+      color: #7c7c7c;
+    }
   }
 
   &__content {

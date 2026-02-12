@@ -65,54 +65,57 @@ const data = [
 
 <template>
   <header class="header">
-    <div class="header__inner">
-      <!-- LEFT -->
-      <div class="left-group">
-        <div class="mobile-burger">
-          <HeaderResTopNavbar :data="data" />
+    <div class="header__container">
+      <div class="header__inner">
+        <!-- LEFT -->
+        <div class="left-group">
+          <div class="mobile-burger">
+            <HeaderResTopNavbar :data="data" />
+          </div>
+
+          <NuxtLink to="/" class="logo-text"> COSMETICS </NuxtLink>
         </div>
 
-        <NuxtLink to="/" class="logo-text"> COSMETICS </NuxtLink>
-      </div>
+        <!-- NAVIGATION -->
+        <UiNavigationMenu class="desktop-nav">
+          <UiNavigationMenuList>
+            <ul class="nav-items">
+              <li v-for="item in data" :key="item.id">
+                <HeaderMenuItem
+                  v-if="item.type === 'MenuItem'"
+                  :label="item.label"
+                  :url="item.url"
+                />
 
-      <!-- NAVIGATION -->
-      <UiNavigationMenu class="desktop-nav">
-        <UiNavigationMenuList>
-          <ul class="nav-items">
-            <li v-for="item in data" :key="item.id">
-              <HeaderMenuItem
-                v-if="item.type === 'MenuItem'"
-                :label="item.label"
-                :url="item.url"
-              />
+                <HeaderMenuList
+                  v-else
+                  :label="item.label"
+                  :data="item.children"
+                />
+              </li>
+            </ul>
+          </UiNavigationMenuList>
+        </UiNavigationMenu>
 
-              <HeaderMenuList
-                v-else
-                :label="item.label"
-                :data="item.children"
-              />
-            </li>
-          </ul>
-        </UiNavigationMenuList>
-      </UiNavigationMenu>
+        <!-- SEARCH -->
+        <div class="desktop-search">
+          <SvgoSearch filled />
+          <input type="search" placeholder="Пошук продуктів..." />
+        </div>
 
-      <!-- SEARCH -->
-      <div class="desktop-search">
-        <SvgoSearch />
-        <input type="search" placeholder="Пошук продуктів..." />
-      </div>
+        <!-- RIGHT -->
+        <div class="right-group">
+          <NuxtLink to="/search" class="mobile-search">
+            <SvgoSearchblack class="mobile-search__svg" />
+          </NuxtLink>
+          <LanguageSwitcher />
+          <ThemeSwitcher />
+          <HeaderCartBtn />
 
-      <!-- RIGHT -->
-      <div class="right-group">
-        <NuxtLink to="/search" class="mobile-search">
-          <SvgoSearchblack />
-        </NuxtLink>
-
-        <HeaderCartBtn />
-
-        <NuxtLink to="/#signin">
-          <SvgoUser class="icons-user" />
-        </NuxtLink>
+          <NuxtLink to="/#signin">
+            <SvgoUser class="icons-user" />
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </header>
@@ -123,19 +126,19 @@ const data = [
   position: sticky;
   top: 0;
   z-index: 20;
-  background: #fff;
 
   .header__inner {
     display: flex;
+    flex-direction: column;
     position: relative;
-    max-width: 1280px; // == max-w-frame
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 16px; // == py-5 px-4
+    padding: 20px 16px;
 
     @media (min-width: 768px) {
-      padding: 24px 16px; // == md:py-6
+      padding: 24px 16px;
+      flex-direction: row;
     }
   }
 }
@@ -185,6 +188,7 @@ const data = [
 /* DESKTOP SEARCH */
 .desktop-search {
   display: none;
+  color: #999;
 
   @media (min-width: 768px) {
     display: flex;
@@ -228,6 +232,10 @@ const data = [
 .mobile-search {
   display: block;
   padding: 4px;
+  &__svg {
+    width: 22px;
+    height: 22px;
+  }
 
   @media (min-width: 768px) {
     display: none;
@@ -236,5 +244,8 @@ const data = [
 .icons-user {
   width: 22px;
   height: 22px;
+  &:hover {
+    color: var(--hover-color);
+  }
 }
 </style>

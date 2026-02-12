@@ -41,7 +41,6 @@ const remove = () => {
 </template>
 <style lang="scss" scoped>
 .cart-counter {
-  background: #f0f0f0;
   width: 100%;
   min-width: 110px;
   max-width: 110px;

@@ -10,7 +10,6 @@ const submit = () => {
 <template>
   <section class="newsletter">
     <p class="newsletter__title">ОТРИМУЙТЕ НАЙСВІЖІШІ ПРОПОЗИЦІЇ ПЕРШИМИ</p>
-
     <div class="newsletter__form-wrapper">
       <div class="newsletter__form">
         <div class="newsletter__input-group">
@@ -26,7 +25,7 @@ const submit = () => {
           <input
             v-model="email"
             type="email"
-            placeholder="Enter your email address"
+            placeholder="Введіть адресу електронної пошти"
             class="newsletter__input"
           />
         </div>
@@ -49,7 +48,6 @@ const submit = () => {
   margin: 0 auto;
   background: #000;
   border-radius: 20px;
-  max-width: 1100px;
 
   @media (min-width: 768px) {
     padding: 44px 60px;
@@ -110,6 +108,7 @@ const submit = () => {
     outline: none;
     background: transparent;
     font-size: 15px;
+    color: #000;
 
     &::placeholder {
       color: rgba(0, 0, 0, 0.4);
@@ -130,6 +129,7 @@ const submit = () => {
     font-size: 16px;
     cursor: pointer;
     border: none;
+    color: #0f172a;
     transition: 0.25s;
 
     &:hover {

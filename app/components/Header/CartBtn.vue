@@ -1,12 +1,18 @@
-<script setup>
-const cart = useState("cart") // { totalQuantities: number }
+<script setup lang="ts">
+import { computed } from "vue"
+import { useCartStore } from "~~/stores/cart"
+
+const cartStore = useCartStore()
+
+const totalQuantities = computed(() => cartStore.totalQuantities)
 </script>
 
 <template>
   <NuxtLink to="/cart" class="cart-btn">
     <SvgoCart class="cart-btn__icon" />
-    <span v-if="cart?.value?.totalQuantities > 0" class="cart-btn__badge">
-      {{ cart.value.totalQuantities }}
+
+    <span v-if="totalQuantities > 0" class="cart-btn__badge">
+      {{ totalQuantities }}
     </span>
   </NuxtLink>
 </template>
@@ -21,6 +27,9 @@ const cart = useState("cart") // { totalQuantities: number }
   &__icon {
     width: 22px;
     height: 22px;
+    &:hover {
+      color: var(--hover-color);
+    }
   }
 
   &__badge {

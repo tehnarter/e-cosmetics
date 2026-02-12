@@ -27,13 +27,9 @@ onMounted(() => {
 
 <template>
   <footer class="footer">
-    <div class="footer__newsletter-wrapper">
-      <div class="container">
-        <FooterNewsLetter />
-      </div>
-    </div>
-    <div class="footer__content">
-      <div class="container">
+    <div class="footer__container">
+      <FooterNewsLetter class="footer__newsletter" />
+      <div class="footer__content">
         <nav class="footer__nav">
           <div class="footer__brand">
             <h1 class="footer__logo">COSMETICS</h1>
@@ -93,20 +89,11 @@ onMounted(() => {
 .footer {
   margin-top: 50px;
 
-  &__newsletter-wrapper {
-    position: relative;
-  }
-
-  &__newsletter-bg {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50%;
-    background: #f0f0f0;
+  &__newsletter {
+    margin-bottom: 20px;
   }
 
   &__content {
-    background: #f0f0f0;
     padding: 40px 0;
   }
 
@@ -145,6 +132,7 @@ onMounted(() => {
     height: 32px;
     border: 1px solid #0002;
     border-radius: 50%;
+    color: #1b1a1a;
     background: #fff;
     display: flex;
     justify-content: center;

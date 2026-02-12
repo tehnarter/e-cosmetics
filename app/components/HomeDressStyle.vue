@@ -44,7 +44,7 @@ onMounted(async () => {
 
 <template>
   <div class="dress-style">
-    <section class="wrapper">
+    <section class="dress-wrapper dress__container">
       <h2 class="title integralCF">ОБИРАЙ ЗА СТИЛЕМ</h2>
 
       <div class="row row-1">
@@ -77,17 +77,9 @@ onMounted(async () => {
   }
 }
 
-.wrapper {
-  max-width: var(--frame-width, 1440px);
-  margin: 0 auto;
-  background: #f0f0f0;
-  padding: 40px 24px 24px;
+.dress-wrapper {
   border-radius: 40px;
   text-align: center;
-
-  @media (min-width: 768px) {
-    padding: 70px;
-  }
 }
 
 .title {
@@ -107,6 +99,7 @@ onMounted(async () => {
   flex-direction: column;
   gap: 20px;
   margin-bottom: 20px;
+  justify-content: space-around;
 
   @media (min-width: 640px) {
     flex-direction: row;

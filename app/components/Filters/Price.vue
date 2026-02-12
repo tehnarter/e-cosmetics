@@ -21,6 +21,8 @@ const price = ref<[number, number]>([50, 200])
         </div>
 
         <div class="price-spacer" />
+
+        <div class="price-values">{{ price[0] }} – {{ price[1] }} ₴</div>
       </UiAccordionContent>
     </UiAccordionItem>
   </UiAccordion>
@@ -32,7 +34,6 @@ const price = ref<[number, number]>([50, 200])
 }
 
 .price-trigger {
-  color: #000;
   font-weight: 700;
   font-size: 20px;
   padding: 2px 0;
@@ -40,6 +41,7 @@ const price = ref<[number, number]>([50, 200])
 
   &:hover {
     text-decoration: none;
+    color: #7c7c7c;
   }
 }
 
@@ -54,5 +56,10 @@ const price = ref<[number, number]>([50, 200])
 
 .price-spacer {
   margin-bottom: 12px;
+}
+
+.price-values {
+  font-size: 14px;
+  font-weight: 500;
 }
 </style>

@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
 
 <template>
   <section class="top">
-    <div class="top__grid">
+    <div class="top__grid top__container">
       <!-- LEFT -->
       <section class="top__left">
         <h2 ref="h2" class="top__title">
@@ -152,7 +152,6 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .top {
-  background: #f2f0f1;
   padding-top: 40px;
   overflow: hidden;
 
@@ -161,8 +160,6 @@ onBeforeUnmount(() => {
   }
 
   &__grid {
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
 
@@ -278,6 +275,7 @@ onBeforeUnmount(() => {
 .stat__sep {
   height: 48px;
   background: rgba(0, 0, 0, 0.1);
+  margin-right: 30px;
 
   &--big {
     display: none;

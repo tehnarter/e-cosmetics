@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <section class="reviews">
-    <div class="reviews__wrapper">
+    <div class="reviews__container">
       <UiCarousel :options="{ loop: true }">
         <template #controls="{ next, prev }">
           <div class="reviews__header">
@@ -37,12 +37,6 @@ defineProps<{
   overflow: hidden;
   padding: 24px 0;
 
-  &__wrapper {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-
   &__header {
     display: flex;
     align-items: center;
@@ -71,14 +65,12 @@ defineProps<{
   &__btn {
     cursor: pointer;
     padding: 6px 14px;
-    background: #fff;
     border: 1px solid #d2d2d2;
     border-radius: 6px;
     font-size: 22px;
-    transition: 0.25s;
 
     &:hover {
-      background: #f5f5f5;
+      background: var(--hover-color);
     }
 
     &:active {

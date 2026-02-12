@@ -18,9 +18,11 @@ const sizes = [
 <template>
   <UiAccordion v-model="open" type="multiple" collapsible>
     <UiAccordionItem value="filter-size" class="sizes-item">
-      <UiAccordionTrigger class="sizes-trigger"> Size </UiAccordionTrigger>
+      <UiAccordionTrigger value="filter-size" class="sizes-trigger">
+        Size
+      </UiAccordionTrigger>
 
-      <UiAccordionContent class="sizes-content">
+      <UiAccordionContent value="filter-size" class="sizes-content">
         <div class="sizes">
           <button
             v-for="s in sizes"
@@ -44,10 +46,13 @@ const sizes = [
 }
 
 .sizes-trigger {
-  color: #000;
   font-weight: 700;
   font-size: 20px;
   padding: 2px 0;
+  &:hover {
+    text-decoration: none;
+    color: #7c7c7c;
+  }
 }
 
 .sizes-content {
@@ -61,7 +66,8 @@ const sizes = [
   align-items: center;
 
   &__btn {
-    background: #f0f0f0;
+    color: #000;
+    background: #d4d5d5;
     margin: 4px;
     padding: 10px 20px;
     font-size: 14px;

@@ -22,7 +22,7 @@ defineProps<{
     padding: 8px 12px;
     font-weight: 400;
     text-decoration: none;
-    color: #000;
+    // color: #000;
     transition: 0.2s ease;
 
     &:hover {

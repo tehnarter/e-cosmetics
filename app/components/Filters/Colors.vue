@@ -18,9 +18,11 @@ const colors = [
 <template>
   <UiAccordion type="single" collapsible default-value="filter-colors">
     <UiAccordionItem value="filter-colors" class="colors">
-      <UiAccordionTrigger class="colors__title"> Colors </UiAccordionTrigger>
+      <UiAccordionTrigger value="filter-colors" class="colors__title">
+        Colors
+      </UiAccordionTrigger>
 
-      <UiAccordionContent class="colors__content">
+      <UiAccordionContent value="filter-colors" class="colors__content">
         <div class="colors__grid">
           <button
             v-for="color in colors"
@@ -60,10 +62,13 @@ const colors = [
   border: none;
 
   &__title {
-    color: #000;
     font-weight: 700;
     font-size: 20px;
     padding: 2px 0;
+    &:hover {
+      text-decoration: none;
+      color: #7c7c7c;
+    }
   }
 
   &__content {
