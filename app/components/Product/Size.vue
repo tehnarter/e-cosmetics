@@ -8,8 +8,6 @@ type Size = (typeof sizes)[number]
 
 const productsStore = useProductsStore()
 
-const selectedSize = computed(() => productsStore.sizeSelection)
-
 const selectSize = (size: Size) => {
   productsStore.setSizeSelection(size)
 }
@@ -25,7 +23,7 @@ const selectSize = (size: Size) => {
         :key="size"
         type="button"
         class="size-selection__item"
-        :class="{ 'is-active': selectedSize === size }"
+        :class="{ 'is-active': productsStore.sizeSelection === size }"
         @click="selectSize(size)"
       >
         {{ size }}

@@ -1,32 +1,33 @@
 <script setup lang="ts">
 import { computed } from "vue"
-
 import { useCartStore } from "~~/stores/cart"
 import { useProductsStore } from "~~/stores/products-cart"
-
 import type { Product } from "~~/types/product.types"
 
 const props = defineProps<{
-  data: Product & { quantity: number }
+  product: Product
+  quantity: number
 }>()
 
 const cartStore = useCartStore()
 const productsStore = useProductsStore()
 
-const attributes = computed(() => [
-  productsStore.sizeSelection,
-  productsStore.colorSelection?.name,
-])
+// ✅ СТАБІЛЬНИЙ порядок атрибутів
+const attributes = computed(() =>
+  [productsStore.sizeSelection, productsStore.colorSelection?.name]
+    .filter(Boolean)
+    .sort()
+)
 
 const addToCartHandler = () => {
   cartStore.addToCart({
-    id: props.data.id,
-    name: props.data.title,
-    srcUrl: props.data.srcUrl,
-    price: props.data.price,
+    id: props.product.id,
+    name: props.product.title,
+    srcUrl: props.product.srcUrl,
+    price: props.product.price,
+    discount: props.product.discount,
     attributes: attributes.value,
-    discount: props.data.discount,
-    quantity: props.data.quantity,
+    quantity: props.quantity,
   })
 }
 </script>

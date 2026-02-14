@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import { computed } from "vue"
 import { useProductsStore } from "~~/stores/products-cart"
 
-export interface Color {
+export type Color = {
   name: string
   code: string
 }
 
-const colorsData: Color[] = [
+const colorsData: readonly Color[] = [
   { name: "Brown", code: "#4F4631" },
   { name: "Green", code: "#314F4A" },
   { name: "Blue", code: "#31344F" },
-]
+] as const
 
 const productsStore = useProductsStore()
-
-const selectedColor = computed(() => productsStore.colorSelection)
 
 const selectColor = (color: Color) => {
   productsStore.setColorSelection(color)
@@ -24,19 +21,20 @@ const selectColor = (color: Color) => {
 
 <template>
   <div class="color-selection">
-    <span class="color-selection__label">Select Colors</span>
+    <span class="color-selection__label">Select Color</span>
 
     <div class="color-selection__list">
       <button
         v-for="color in colorsData"
-        :key="color.name"
+        :key="color.code"
         type="button"
         class="color-selection__item"
         :style="{ backgroundColor: color.code }"
+        :aria-pressed="productsStore.colorSelection.code === color.code"
         @click="selectColor(color)"
       >
         <span
-          v-if="selectedColor?.name === color.name"
+          v-if="productsStore.colorSelection.code === color.code"
           class="color-selection__check"
         >
           ✓

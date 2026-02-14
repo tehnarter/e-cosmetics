@@ -1,10 +1,33 @@
 <script setup lang="ts">
-import type { Product } from "~~/types/product.types"
+import type { Product, LocalizedText } from "~~/types/product.types"
+import { ref, computed, onMounted } from "vue"
+import { useI18n } from "#imports"
 
 const props = defineProps<{ data: Product }>()
 
 const headerRef = ref<HTMLElement | null>(null)
+const { locale } = useI18n()
 
+// Мапа для відповідності ua → uk, en → en
+const langMap: Record<string, keyof LocalizedText> = {
+  ua: "uk",
+  en: "en",
+}
+
+// Вибір title та description відповідно до мови
+const title = computed(() => {
+  const key = langMap[locale.value] ?? "uk"
+  const t = props.data.title as LocalizedText
+  return t?.[key] ?? ""
+})
+
+const description = computed(() => {
+  const key = langMap[locale.value] ?? "uk"
+  const d = props.data.description as LocalizedText
+  return d?.[key] ?? ""
+})
+
+// Обчислення фінальної ціни
 const finalPrice = computed(() => {
   if (props.data.discount.percentage > 0) {
     return Math.round(
@@ -18,6 +41,7 @@ const finalPrice = computed(() => {
   return props.data.price
 })
 
+// GSAP анімація при монтуванні
 onMounted(() => {
   if (!headerRef.value) return
 
@@ -39,17 +63,13 @@ onMounted(() => {
       </div>
 
       <div class="product-header__content">
+        <!-- Використовуємо мультимовний title -->
         <h1 class="product-header__title fade-up">
-          {{ data.title }}
+          {{ title }}
         </h1>
 
         <div class="product-header__rating fade-up">
-          <UiRating
-            :initial-value="data.rating"
-            allow-fraction
-            readonly
-            :size="25"
-          />
+          <UiRating :value="data.rating" allow-fraction readonly :size="25" />
           <span class="product-header__rating-value">
             {{ data.rating.toFixed(1) }}<span>/5</span>
           </span>
@@ -74,10 +94,8 @@ onMounted(() => {
           </span>
         </div>
 
-        <p class="product-header__description fade-up">
-          This graphic t-shirt which is perfect for any occasion. Crafted from a
-          soft and breathable fabric, it offers superior comfort and style.
-        </p>
+        <!-- Використовуємо мультимовний description -->
+        <p class="product-header__description fade-up">{{ description }}</p>
 
         <hr />
         <ProductColor class="fade-up" />
@@ -95,7 +113,7 @@ onMounted(() => {
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 2.5rem;
 
     @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
