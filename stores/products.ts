@@ -2,7 +2,11 @@
 import { defineStore } from "pinia"
 
 const placeholderImg = "/images/shopping.webp"
-
+const galleryImg = [
+  "/images/shopping.webp",
+  "/images/shopping-2.webp",
+  "/images/shopping-3.webp",
+]
 export const useProductsStore = defineStore("products", {
   state: () => ({
     newArrivals: [
@@ -41,7 +45,7 @@ export const useProductsStore = defineStore("products", {
           en: "Cleansing Facial Foam",
         },
         srcUrl: placeholderImg,
-        gallery: [placeholderImg],
+        gallery: [galleryImg],
         price: 220,
         discount: { amount: 0, percentage: 0 },
         rating: 4.5,
@@ -208,12 +212,12 @@ export const useProductsStore = defineStore("products", {
       {
         id: 17,
         title: {
-          uk: "Парфумована вода жіноча",
+          uk: "Парфумована вода",
           en: "Women’s Perfume",
         },
         srcUrl: placeholderImg,
-        gallery: [placeholderImg],
-        price: 680,
+        gallery: galleryImg,
+        price: 100,
         discount: { amount: 0, percentage: 20 },
         rating: 4.9,
       },

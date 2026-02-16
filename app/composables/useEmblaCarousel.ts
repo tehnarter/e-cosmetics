@@ -1,4 +1,3 @@
-import { ref, onMounted, onBeforeUnmount } from "vue"
 import EmblaCarousel from "embla-carousel"
 
 export function useEmblaCarousel(options = {}) {
