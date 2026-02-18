@@ -11,12 +11,11 @@ const brandsData: { id: string; srcUrl: string }[] = [
 <template>
   <div class="brands">
     <div class="brands__container">
-      <NuxtImg
+      <img
         v-for="brand in brandsData"
         :key="brand.id"
         :src="brand.srcUrl"
         :alt="brand.id"
-        format="svg"
         class="brands__logo"
       />
     </div>

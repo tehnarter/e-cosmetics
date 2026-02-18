@@ -74,11 +74,11 @@ onMounted(async () => {
 <template>
   <div ref="cardRef" class="cart-card">
     <NuxtLink :to="productLink" class="cart-card__image">
-      <NuxtImg
+      <img
         :src="data.srcUrl"
         width="124"
         height="124"
-        :alt="data.name"
+        :alt="localizedName"
         class="image"
       />
     </NuxtLink>

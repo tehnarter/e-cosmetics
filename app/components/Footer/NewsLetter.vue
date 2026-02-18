@@ -14,12 +14,7 @@ const submit = () => {
       <div class="newsletter__form">
         <div class="newsletter__input-group">
           <span class="newsletter__icon">
-            <NuxtImg
-              src="/icons/envelope.svg"
-              width="20"
-              height="20"
-              alt="email"
-            />
+            <img src="/icons/envelope.svg" width="20" height="20" alt="email" />
           </span>
 
           <input
