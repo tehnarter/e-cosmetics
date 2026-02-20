@@ -20,26 +20,27 @@ const props = defineProps<{
 
 <template>
   <section class="product-list">
-    <h2 class="product-title">{{ title }}</h2>
+    <div class="product-list__container">
+      <h2 class="product-title">{{ title }}</h2>
 
-    <UiCarousel :options="{ loop: true }">
-      <UiCarouselContainer>
-        <UiCarouselSlide v-for="item in data" :key="item.id">
-          <ProductCard :data="item" />
-        </UiCarouselSlide>
-      </UiCarouselContainer>
-    </UiCarousel>
+      <UiCarousel :options="{ loop: true }">
+        <UiCarouselContainer>
+          <UiCarouselSlide v-for="item in data" :key="item.id">
+            <ProductCard :data="item" />
+          </UiCarouselSlide>
+        </UiCarouselContainer>
+      </UiCarousel>
 
-    <NuxtLink v-if="viewAllLink" :to="viewAllLink" class="view-all-btn">
-      Переглянути все
-    </NuxtLink>
+      <NuxtLink v-if="viewAllLink" :to="viewAllLink" class="view-all-btn">
+        Переглянути все
+      </NuxtLink>
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 .product-list {
-  max-width: 1400px;
-  margin: 0 auto;
+  margin-bottom: 20px;
   text-align: center;
   padding: 0 16px;
 

@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <div v-if="visible" ref="banner" class="top-banner">
-    <div class="top-banner__inner">
+    <div class="top-banner__inner top-banner__container">
       <p class="top-banner__text">
         Ви переглядаєте тестову версію сайту. Контент та функціонал оновлюються.
         <!-- <NuxtLink to="#" class="top-banner__link">Зареєструватися</NuxtLink> -->
@@ -54,13 +54,9 @@ onMounted(() => {
   padding: 10px 15px;
   text-align: center;
   width: 100%;
-  position: relative;
-  z-index: 50;
 
   &__inner {
-    max-width: 1200px;
     margin: 0 auto;
-    position: relative;
   }
 
   &__text {
