@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed } from "vue"
+import { useI18n } from "#imports"
+const { locale } = useI18n()
+
+interface LocalizedText {
+  uk: string
+  en: string
+}
+
 interface Discount {
   percentage: number
   amount: number
@@ -6,7 +15,7 @@ interface Discount {
 
 interface Product {
   id: number
-  title: string
+  title: LocalizedText
   price: number
   rating: number
   srcUrl: string
@@ -16,8 +25,16 @@ interface Product {
 const props = defineProps<{
   data: Product
 }>()
+const langMap: Record<string, keyof LocalizedText> = {
+  ua: "uk",
+  en: "en",
+}
+const title = computed(() => {
+  const key = langMap[locale.value] ?? "uk"
+  return props.data.title[key]
+})
 
-const slug = props.data.title.split(" ").join("-")
+const slug = computed(() => title.value.toLowerCase().split(" ").join("-"))
 </script>
 
 <template>
@@ -28,16 +45,19 @@ const slug = props.data.title.split(" ").join("-")
         width="295"
         height="298"
         class="img"
-        :alt="data.title"
+        :alt="title"
       />
     </div>
 
-    <strong class="card-title">{{ data.title }}</strong>
+    <strong class="card-title">
+      {{ title }}
+    </strong>
 
-    <div class="rating">
+    <div class="rating-card">
       <UiRating :value="data.rating" :readonly="true" :maxStars="5" />
       <span class="rating-value">
-        {{ data.rating.toFixed(1) }}<span class="max">/5</span>
+        {{ data.rating.toFixed(1) }}
+        <span class="max">/5</span>
       </span>
     </div>
 
@@ -45,7 +65,9 @@ const slug = props.data.title.split(" ").join("-")
       <span class="current">
         {{
           data.discount.percentage > 0
-            ? `$${Math.round(data.price - (data.price * data.discount.percentage) / 100)}`
+            ? `$${Math.round(
+                data.price - (data.price * data.discount.percentage) / 100
+              )}`
             : data.discount.amount > 0
               ? `$${data.price - data.discount.amount}`
               : `$${data.price}`
@@ -72,23 +94,29 @@ const slug = props.data.title.split(" ").join("-")
 
 <style scoped lang="scss">
 .card {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .card-image {
+  margin: 0 auto 16px auto;
   background: #f0eeed;
   border-radius: 20px;
   width: 100%;
   max-width: 295px;
   aspect-ratio: 1/1;
-  margin-bottom: 16px;
+  margin-bottom: 50px;
   overflow: hidden;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     transition: transform 0.5s ease;
 
@@ -104,9 +132,9 @@ const slug = props.data.title.split(" ").join("-")
   color: #000;
 }
 
-.rating {
+.rating-card {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 10px;
 
   .rating-value {
