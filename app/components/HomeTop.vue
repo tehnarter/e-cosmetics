@@ -1,7 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue"
 import { gsap } from "gsap"
-
+import { useI18n } from "#imports"
+const { t } = useI18n()
 const h2 = ref(null)
 const p = ref(null)
 const btn = ref(null)
@@ -93,17 +94,17 @@ onBeforeUnmount(() => {
       <!-- LEFT -->
       <section class="top__left">
         <h2 ref="h2" class="top__title">
-          ЗНАЙДИ КОСМЕТИКУ, ЩО ПІДКРЕСЛЮЄ ТВОЮ КРАСУ
+          {{ t("hometop.title") }}
         </h2>
 
         <p ref="p" class="top__text">
-          Переглянь нашу різноманітну колекцію ретельно підібраних косметичних
-          засобів, створених, щоб підкреслити твою індивідуальність та доповнити
-          щоденний догляд.
+          {{ t("hometop.subtitle") }}
         </p>
 
         <div ref="btn">
-          <NuxtLink to="/shop" class="top__btn">Перейти до магазину</NuxtLink>
+          <NuxtLink to="/shop" class="top__btn">{{
+            t("hometop.btn")
+          }}</NuxtLink>
         </div>
 
         <div ref="stats" class="top__stats">
@@ -111,7 +112,7 @@ onBeforeUnmount(() => {
             <span class="stat__num">
               <UiAnimatedCounter :from="0" :to="150" />+
             </span>
-            <span class="stat__label">Міжнародних брендів</span>
+            <span class="stat__label">{{ t("hometop.brands") }}</span>
           </div>
 
           <UiSeparator orientation="vertical" class="stat__sep" />
@@ -120,7 +121,7 @@ onBeforeUnmount(() => {
             <span class="stat__num">
               <UiAnimatedCounter :from="0" :to="1200" />+
             </span>
-            <span class="stat__label">Преміальних продуктів</span>
+            <span class="stat__label">{{ t("hometop.products") }}</span>
           </div>
 
           <UiSeparator
@@ -132,7 +133,7 @@ onBeforeUnmount(() => {
             <span class="stat__num">
               <UiAnimatedCounter :from="0" :to="2500" />+
             </span>
-            <span class="stat__label">Задоволених клієнтів</span>
+            <span class="stat__label">{{ t("hometop.customers") }}</span>
           </div>
         </div>
       </section>

@@ -20,9 +20,12 @@
   "back": "Назад",
   "not_found": "Не знайдено",
 
-  "page": {
-    "title": "Топ 5  2025",
-    "next": "Читати далі"
+  "hometop": {
+    "title": "FIND COSMETICS THAT ENHANCE YOUR BEAUTY",
+    "subtitle": "Explore our diverse collection of carefully selected beauty products designed to highlight your individuality and complement your daily skincare routine.",
+    "btn": "Go to Shop",
+    "brands": "International Brands",
+    "products": "Premium Products",
+    "customers": "Satisfied Customers"
   }
-
 }
