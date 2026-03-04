@@ -16,6 +16,8 @@ const props = defineProps<{
   data: Product[]
   viewAllLink?: string
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -32,7 +34,7 @@ const props = defineProps<{
       </UiCarousel>
 
       <NuxtLink v-if="viewAllLink" :to="viewAllLink" class="view-all-btn">
-        Переглянути все
+        {{ t("productList.btn") }}
       </NuxtLink>
     </div>
   </section>

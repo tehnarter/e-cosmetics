@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue"
-import { gsap } from "gsap"
 import { useI18n } from "#imports"
 const { t } = useI18n()
 const h2 = ref(null)
@@ -94,16 +92,16 @@ onBeforeUnmount(() => {
       <!-- LEFT -->
       <section class="top__left">
         <h2 ref="h2" class="top__title">
-          {{ t("hometop.title") }}
+          {{ t("homeTop.title") }}
         </h2>
 
         <p ref="p" class="top__text">
-          {{ t("hometop.subtitle") }}
+          {{ t("homeTop.subtitle") }}
         </p>
 
         <div ref="btn">
           <NuxtLink to="/shop" class="top__btn">{{
-            t("hometop.btn")
+            t("homeTop.btn")
           }}</NuxtLink>
         </div>
 
@@ -112,7 +110,7 @@ onBeforeUnmount(() => {
             <span class="stat__num">
               <UiAnimatedCounter :from="0" :to="150" />+
             </span>
-            <span class="stat__label">{{ t("hometop.brands") }}</span>
+            <span class="stat__label">{{ t("homeTop.brands") }}</span>
           </div>
 
           <UiSeparator orientation="vertical" class="stat__sep" />
@@ -121,7 +119,7 @@ onBeforeUnmount(() => {
             <span class="stat__num">
               <UiAnimatedCounter :from="0" :to="1200" />+
             </span>
-            <span class="stat__label">{{ t("hometop.products") }}</span>
+            <span class="stat__label">{{ t("homeTop.products") }}</span>
           </div>
 
           <UiSeparator
@@ -133,7 +131,7 @@ onBeforeUnmount(() => {
             <span class="stat__num">
               <UiAnimatedCounter :from="0" :to="2500" />+
             </span>
-            <span class="stat__label">{{ t("hometop.customers") }}</span>
+            <span class="stat__label">{{ t("homeTop.customers") }}</span>
           </div>
         </div>
       </section>

@@ -1,31 +1,36 @@
 {
   "seo": {
-    "title": "ТОП-5 ",
-    "description": "Порівняння, характеристики "
+    "title": " ",
+    "description": " "
   },
   "og": {
-    "title": "ТОП-5 ",
+    "title": " ",
     "description": ""
   },
   "twitter": {
     "card": "summary_large_image",
-    "title": "ТОП-5 ",
-    "description": "Огляд найкращих  "
+    "title": " ",
+    "description": "  "
   },
 
-  "toggleTheme": "Змінити тему",
+  "toggleTheme": "",
   "footer": {
     "rights": "Всі права захищено"
   },
-  "back": "Назад",
-  "not_found": "Не знайдено",
 
-  "hometop": {
+  "topBanner": "You are viewing a test version of the site. Content and functionality are being updated.",
+
+  "homeTop": {
     "title": "FIND COSMETICS THAT ENHANCE YOUR BEAUTY",
     "subtitle": "Explore our diverse collection of carefully selected beauty products designed to highlight your individuality and complement your daily skincare routine.",
     "btn": "Go to Shop",
     "brands": "International Brands",
     "products": "Premium Products",
     "customers": "Satisfied Customers"
+  },
+  "productList": {
+    "titleOne": "NEW ARRIVALS",
+    "titleTwo": "TOP SELLING",
+    "btn": "View All"
   }
 }

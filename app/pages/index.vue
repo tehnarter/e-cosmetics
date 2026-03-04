@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useProductsStore } from "~~/stores/products"
 import { useReviewsStore } from "~~/stores/reviews"
-
+const { t } = useI18n()
 const products = useProductsStore()
 const reviewsStore = useReviewsStore()
 
@@ -15,12 +15,12 @@ const reviews = computed(() => reviewsStore.reviews)
     <HomeTop />
     <HomeBrands />
     <ProductList
-      title="НОВІ НАДХОДЖЕННЯ"
+      :title="t('productList.titleOne')"
       :data="newArrivalsData"
       view-all-link="/shop#new-arrivals"
     />
     <ProductList
-      title="ХІТ ПРОДАЖІВ"
+      :title="t('productList.titleTwo')"
       :data="topSellingData"
       view-all-link="/shop#new-arrivals"
     />

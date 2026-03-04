@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue"
-import gsap from "gsap"
-
+const { t } = useI18n()
 const visible = ref(true)
 const banner = ref<HTMLElement | null>(null)
 
@@ -29,7 +27,8 @@ onMounted(() => {
   <div v-if="visible" ref="banner" class="top-banner">
     <div class="top-banner__inner top-banner__container">
       <p class="top-banner__text">
-        Ви переглядаєте тестову версію сайту. Контент та функціонал оновлюються.
+        {{ t("topBanner") }}
+
         <!-- <NuxtLink to="#" class="top-banner__link">Зареєструватися</NuxtLink> -->
       </p>
 
