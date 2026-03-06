@@ -19,7 +19,25 @@
   },
 
   "topBanner": "You are viewing a test version of the site. Content and functionality are being updated.",
+  "menu": {
+    "shop": "Shop",
+    "faceCare": "Face Care",
+    "hairCare": "Hair Care",
+    "makeup": "Makeup",
+    "bodyCare": "Body Care",
+    "perfumes": "Perfumes",
+    "sale": "Sale",
+    "new": "New Arrivals",
+    "brands": "Brands",
 
+    "faceCareDesc": "Creams, serums and cleansing for healthy glowing skin",
+    "hairCareDesc": "Professional shampoos, conditioners, masks and styling",
+    "makeupDesc": "Foundations, lipsticks, eyeshadows and cosmetics",
+    "bodyCareDesc": "Lotions, scrubs and body care products",
+    "perfumesDesc": "Women's and men's fragrances",
+
+    "search": "Search products..."
+  },
   "homeTop": {
     "title": "FIND COSMETICS THAT ENHANCE YOUR BEAUTY",
     "subtitle": "Explore our diverse collection of carefully selected beauty products designed to highlight your individuality and complement your daily skincare routine.",

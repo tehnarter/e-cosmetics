@@ -1,66 +1,66 @@
 <script setup lang="ts">
-const data = [
+const { t } = useI18n()
+
+const data = computed(() => [
   {
     id: 1,
-    label: "Магазин",
+    label: t("menu.shop"),
     type: "MenuList",
     children: [
       {
         id: 11,
-        label: "Догляд за обличчям",
+        label: t("menu.faceCare"),
         url: "/shop#face-care",
-        description:
-          "Креми, сироватки, очищення — все для здорової та сяючої шкіри",
+        description: t("menu.faceCareDesc"),
       },
       {
         id: 12,
-        label: "Догляд за волоссям",
+        label: t("menu.hairCare"),
         url: "/shop#hair-care",
-        description: "Професійні шампуні, бальзами, маски та засоби стайлінгу",
+        description: t("menu.hairCareDesc"),
       },
       {
         id: 13,
-        label: "Макіяж",
+        label: t("menu.makeup"),
         url: "/shop#makeup",
-        description:
-          "Тональні засоби, помади, тіні та інша декоративна косметика",
+        description: t("menu.makeupDesc"),
       },
       {
         id: 14,
-        label: "Догляд за тілом",
+        label: t("menu.bodyCare"),
         url: "/shop#body-care",
-        description: "Лосьйони, скраби, гелі та засоби для щоденного догляду",
+        description: t("menu.bodyCareDesc"),
       },
       {
         id: 15,
-        label: "Аромати",
+        label: t("menu.perfumes"),
         url: "/shop#perfumes",
-        description: "Жіночі та чоловічі парфуми на будь-який смак",
+        description: t("menu.perfumesDesc"),
       },
     ],
   },
   {
     id: 2,
     type: "MenuItem",
-    label: "Знижки",
+    label: t("menu.sale"),
     url: "/shop#on-sale",
     children: [],
   },
   {
     id: 3,
     type: "MenuItem",
-    label: "Новинки",
+    label: t("menu.new"),
     url: "/shop#new-arrivals",
     children: [],
   },
   {
     id: 4,
     type: "MenuItem",
-    label: "Бренди",
+    label: t("menu.brands"),
     url: "/shop#brands",
     children: [],
   },
-]
+])
 </script>
 
 <template>
@@ -100,7 +100,7 @@ const data = [
         <!-- SEARCH -->
         <div class="desktop-search">
           <SvgoSearch filled />
-          <input type="search" placeholder="Пошук продуктів..." />
+          <input type="search" :placeholder="t('menu.search')" />
         </div>
 
         <!-- RIGHT -->
