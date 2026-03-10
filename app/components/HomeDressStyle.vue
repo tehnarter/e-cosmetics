@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 onMounted(async () => {
   const gsap = (await import("gsap")).default
   const ScrollTrigger = (await import("gsap/ScrollTrigger")).default
@@ -45,24 +46,32 @@ onMounted(async () => {
 <template>
   <div class="dress-style">
     <section class="dress-wrapper dress__container">
-      <h2 class="title integralCF">ОБИРАЙ ЗА СТИЛЕМ</h2>
+      <h2 class="title integralCF">{{ t("dressStyle.title") }}</h2>
 
       <div class="row row-1">
         <DressStyleCard
-          title="Щоденний"
+          :title="t('dressStyle.cards.casual')"
           url="/shop#casual"
           className="card-1"
         />
         <DressStyleCard
-          title="Офіційний"
+          :title="t('dressStyle.cards.formal')"
           url="/shop#formal"
           className="card-2"
         />
       </div>
 
       <div class="row row-2">
-        <DressStyleCard title="Вечірній" url="/shop#party" className="card-3" />
-        <DressStyleCard title="Спорт" url="/shop#gym" className="card-4" />
+        <DressStyleCard
+          :title="t('dressStyle.cards.party')"
+          url="/shop#party"
+          className="card-3"
+        />
+        <DressStyleCard
+          :title="t('dressStyle.cards.gym')"
+          url="/shop#gym"
+          className="card-4"
+        />
       </div>
     </section>
   </div>

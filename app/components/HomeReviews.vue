@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 defineProps<{
   data: any[]
 }>()
@@ -10,7 +11,7 @@ defineProps<{
       <UiCarousel :options="{ loop: true }">
         <template #controls="{ next, prev }">
           <div class="reviews__header">
-            <h2 class="reviews__title">Відгуки наших покупців</h2>
+            <h2 class="reviews__title">{{ t("reviewsTitle") }}</h2>
             <div class="reviews__controls">
               <button class="reviews__btn" @click="prev">‹</button>
               <button class="reviews__btn" @click="next">›</button>

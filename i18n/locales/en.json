@@ -14,9 +14,6 @@
   },
 
   "toggleTheme": "",
-  "footer": {
-    "rights": "Всі права захищено"
-  },
 
   "topBanner": "You are viewing a test version of the site. Content and functionality are being updated.",
   "menu": {
@@ -50,5 +47,16 @@
     "titleOne": "NEW ARRIVALS",
     "titleTwo": "TOP SELLING",
     "btn": "View All"
-  }
+  },
+
+  "dressStyle": {
+    "title": "CHOOSE BY STYLE",
+    "cards": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "party": "Evening",
+      "gym": "Sports"
+    }
+  },
+  "reviewsTitle": "What Our Customers Say"
 }
