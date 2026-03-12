@@ -1,55 +1,45 @@
 <script setup lang="ts">
-interface FooterLink {
-  id: number
-  label: string
-  url: string
-}
+const { t } = useI18n()
 
-interface FooterLinks {
-  id: number
-  title: string
-  children: FooterLink[]
-}
-
-const footerLinksData: FooterLinks[] = [
+const footerSections = [
   {
     id: 1,
-    title: "Компанія",
-    children: [
-      { id: 11, label: "Про нас", url: "#" },
-      { id: 12, label: "Наші переваги", url: "#" },
-      { id: 13, label: "Блог та новини", url: "#" },
-      { id: 14, label: "Вакансії", url: "#" },
+    key: "footer.company",
+    links: [
+      { id: 11, key: "about", url: "#" },
+      { id: 12, key: "advantages", url: "#" },
+      { id: 13, key: "blog", url: "#" },
+      { id: 14, key: "careers", url: "#" },
     ],
   },
   {
     id: 2,
-    title: "Допомога",
-    children: [
-      { id: 21, label: "Підтримка клієнтів", url: "#" },
-      { id: 22, label: "Доставка та оплата", url: "#" },
-      { id: 23, label: "Умови користування", url: "#" },
-      { id: 24, label: "Політика конфіденційності", url: "#" },
+    key: "footer.help",
+    links: [
+      { id: 21, key: "support", url: "#" },
+      { id: 22, key: "shipping", url: "#" },
+      { id: 23, key: "terms", url: "#" },
+      { id: 24, key: "privacy", url: "#" },
     ],
   },
   {
     id: 3,
-    title: "FAQ",
-    children: [
-      { id: 31, label: "Обліковий запис", url: "#" },
-      { id: 32, label: "Відстеження доставки", url: "#" },
-      { id: 33, label: "Мої замовлення", url: "#" },
-      { id: 34, label: "Оплата", url: "#" },
+    key: "footer.faq",
+    links: [
+      { id: 31, key: "account", url: "#" },
+      { id: 32, key: "tracking", url: "#" },
+      { id: 33, key: "orders", url: "#" },
+      { id: 34, key: "payment", url: "#" },
     ],
   },
   {
     id: 4,
-    title: "Корисні матеріали",
-    children: [
-      { id: 41, label: "Поради з догляду", url: "#" },
-      { id: 42, label: "Підбір косметики", url: "#" },
-      { id: 43, label: "Beauty-гід", url: "#" },
-      { id: 44, label: "Відеоогляди", url: "#" },
+    key: "footer.resources",
+    links: [
+      { id: 41, key: "care_tips", url: "#" },
+      { id: 42, key: "cosmetics_guide", url: "#" },
+      { id: 43, key: "beauty_guide", url: "#" },
+      { id: 44, key: "video_reviews", url: "#" },
     ],
   },
 ]
@@ -71,23 +61,21 @@ onMounted(() => {
 
 <template>
   <section
-    v-for="item in footerLinksData"
-    :key="item.id"
+    v-for="section in footerSections"
+    :key="section.id"
     class="footer-section"
     ref="items"
   >
-    <h3 class="footer-title">{{ item.title }}</h3>
+    <h3 class="footer-title">{{ t(section.key + ".title") }}</h3>
 
     <NuxtLink
-      v-for="link in item.children"
+      v-for="link in section.links"
       :key="link.id"
       :to="link.url"
       class="footer-link"
-      :class="{
-        capitalize: link.id !== 41 && link.id !== 43,
-      }"
+      :class="{ capitalize: link.id !== 41 && link.id !== 43 }"
     >
-      {{ link.label }}
+      {{ t(section.key + "." + link.key) }}
     </NuxtLink>
   </section>
 </template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const socials = [
   { id: 1, icon: "SvgoFacebook", url: "https://facebook.com" },
   { id: 2, icon: "SvgoInstagram", url: "https://instagram.com" },
@@ -35,8 +36,7 @@ onMounted(() => {
             <h1 class="footer__logo">COSMETICS</h1>
 
             <p class="footer__text">
-              Косметика, яка відповідає вашому стилю та стандартам якості.
-              Догляд і б’юті-засоби для жінок і чоловіків.
+              {{ t("footer.text") }}
             </p>
 
             <div class="footer__socials">

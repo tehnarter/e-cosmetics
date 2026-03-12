@@ -58,5 +58,41 @@
       "gym": "Sports"
     }
   },
-  "reviewsTitle": "What Our Customers Say"
+  "reviewsTitle": "What Our Customers Say",
+  "footer": {
+    "text": "Cosmetics that match your style and quality standards. Care and beauty products for women and men.",
+    "newsletter": {
+      "title": "STAY UP TO DATE ABOUT OUR LATEST OFFERS",
+      "placeholder": "Enter your email address",
+      "btn": "Subscribe to Newsletter"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "advantages": "Our Advantages",
+      "blog": "Blog & News",
+      "careers": "Careers"
+    },
+    "help": {
+      "title": "Help",
+      "support": "Customer Support",
+      "shipping": "Shipping & Payment",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "faq": {
+      "title": "FAQ",
+      "account": "Account",
+      "tracking": "Order Tracking",
+      "orders": "My Orders",
+      "payment": "Payment"
+    },
+    "resources": {
+      "title": "Resources",
+      "care_tips": "Care Tips",
+      "cosmetics_guide": "Cosmetics Guide",
+      "beauty_guide": "Beauty Guide",
+      "video_reviews": "Video Reviews"
+    }
+  }
 }

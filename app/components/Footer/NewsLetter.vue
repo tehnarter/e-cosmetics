@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue"
-
+const { t } = useI18n()
 const email = ref("")
 const submit = () => {
   console.log("Email:", email.value)
@@ -9,7 +8,7 @@ const submit = () => {
 
 <template>
   <section class="newsletter">
-    <p class="newsletter__title">ОТРИМУЙТЕ НАЙСВІЖІШІ ПРОПОЗИЦІЇ ПЕРШИМИ</p>
+    <p class="newsletter__title">{{ t("footer.newsletter.title") }}</p>
     <div class="newsletter__form-wrapper">
       <div class="newsletter__form">
         <div class="newsletter__input-group">
@@ -20,13 +19,13 @@ const submit = () => {
           <input
             v-model="email"
             type="email"
-            placeholder="Введіть адресу електронної пошти"
+            :placeholder="t('footer.newsletter.placeholder')"
             class="newsletter__input"
           />
         </div>
 
         <button class="newsletter__button" @click="submit">
-          Підписатися на розсилку
+          {{ t("footer.newsletter.btn") }}
         </button>
       </div>
     </div>
