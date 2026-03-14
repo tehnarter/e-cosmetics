@@ -1,15 +1,16 @@
 <script setup lang="ts">
+const { t } = useI18n()
 type Category = {
   title: string
   slug: string
 }
 
 const categoriesData: Category[] = [
-  { title: "T-shirts", slug: "/shop?category=t-shirts" },
-  { title: "Shorts", slug: "/shop?category=shorts" },
-  { title: "Shirts", slug: "/shop?category=shirts" },
-  { title: "Hoodie", slug: "/shop?category=hoodie" },
-  { title: "Jeans", slug: "/shop?category=jeans" },
+  { title: t("filters.tShirts"), slug: "/shop?category=t-shirts" },
+  { title: t("filters.shorts"), slug: "/shop?category=shorts" },
+  { title: t("filters.shirts"), slug: "/shop?category=shirts" },
+  { title: t("filters.hoodie"), slug: "/shop?category=hoodie" },
+  { title: t("filters.jeans"), slug: "/shop?category=jeans" },
 ]
 </script>
 

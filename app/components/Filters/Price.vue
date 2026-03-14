@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const price = ref<[number, number]>([50, 200])
 </script>
 
@@ -6,7 +7,7 @@ const price = ref<[number, number]>([50, 200])
   <UiAccordion type="single" collapsible>
     <UiAccordionItem value="filter-price" class="price-item">
       <UiAccordionTrigger value="filter-price" class="price-trigger">
-        Ціна
+        {{ t("filters.price") }}
       </UiAccordionTrigger>
 
       <UiAccordionContent value="filter-price" class="price-content">

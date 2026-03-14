@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const selected = ref("green")
 
 const colors = [
@@ -19,7 +20,7 @@ const colors = [
   <UiAccordion type="single" collapsible default-value="filter-colors">
     <UiAccordionItem value="filter-colors" class="colors">
       <UiAccordionTrigger value="filter-colors" class="colors__title">
-        Colors
+        {{ t("filters.colors") }}
       </UiAccordionTrigger>
 
       <UiAccordionContent value="filter-colors" class="colors__content">

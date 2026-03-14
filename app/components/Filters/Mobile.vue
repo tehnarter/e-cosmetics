@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <template>
   <ClientOnly>
@@ -39,7 +41,7 @@
       <UiDrawerContent class="mobile-filters">
         <UiDrawerHeader>
           <div class="mobile-filters__header">
-            <span class="mobile-filters__title">Filters</span>
+            <span class="mobile-filters__title">{{ t("filters.title") }}</span>
             <svg
               stroke="currentColor"
               fill="none"
@@ -64,9 +66,11 @@
             </svg>
           </div>
 
-          <UiDrawerTitle class="sr-only">Filters</UiDrawerTitle>
+          <UiDrawerTitle class="sr-only">{{
+            t("filters.title")
+          }}</UiDrawerTitle>
           <UiDrawerDescription class="sr-only">
-            Product filters
+            {{ t("filters.description") }}
           </UiDrawerDescription>
         </UiDrawerHeader>
 

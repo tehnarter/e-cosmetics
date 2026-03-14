@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 onMounted(() => {
   // GSAP анімація появи кожного блоку
   gsap.from(".filter-section", {
@@ -42,7 +43,9 @@ onMounted(() => {
       <FiltersDressStyle />
     </div>
 
-    <button type="button" class="apply-btn">Apply Filter</button>
+    <button type="button" class="apply-btn">
+      {{ t("filters.applyFilter") }}
+    </button>
   </div>
 </template>
 

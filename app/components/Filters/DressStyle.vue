@@ -1,11 +1,12 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const open = ref(["filter-style"]) // масив — для multiple режиму
 
 const dressStylesData = [
-  { title: "Casual", slug: "/shop?style=casual" },
-  { title: "Formal", slug: "/shop?style=formal" },
-  { title: "Party", slug: "/shop?style=party" },
-  { title: "Gym", slug: "/shop?style=gym" },
+  { title: t("filters.casual"), slug: "/shop?style=casual" },
+  { title: t("filters.formal"), slug: "/shop?style=formal" },
+  { title: t("filters.party"), slug: "/shop?style=party" },
+  { title: t("filters.gym"), slug: "/shop?style=gym" },
 ]
 </script>
 
@@ -13,7 +14,7 @@ const dressStylesData = [
   <UiAccordion v-model="open" type="multiple" collapsible>
     <UiAccordionItem value="filter-style" class="dress">
       <UiAccordionTrigger value="filter-style" class="dress__title">
-        Dress Style
+        {{ t("filters.dressStyle") }}
       </UiAccordionTrigger>
 
       <UiAccordionContent value="filter-style" class="dress__content">

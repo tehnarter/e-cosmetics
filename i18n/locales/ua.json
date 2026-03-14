@@ -58,6 +58,33 @@
     }
   },
   "reviewsTitle": "Відгуки наших покупців",
+  "filters": {
+    "tShirts": "Футболки",
+    "shorts": "Шорти",
+    "shirts": "Сорочки",
+    "hoodie": "Худі",
+    "jeans": "Джинси",
+    "colors": "Кольори",
+    "dressStyle": "Стиль одягу",
+    "casual": "Щоденний",
+    "formal": "Офіційний",
+    "party": "Вечірній",
+    "gym": "Спорт",
+    "applyFilter": "Застосувати фільтр",
+    "title": "Фільтри",
+    "description": "Фільтри продуктів",
+    "price": "Ціна",
+    "size": "Розмір",
+    "xxSmall": "XX-Small",
+    "xSmall": "X-Small",
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large",
+    "xLarge": "X-Large",
+    "xxLarge": "XX-Large",
+    "3xLarge": "XX-Large",
+    "4xLarge": "XX-Large"
+  },
   "footer": {
     "text": "Косметика, яка відповідає вашому стилю та стандартам якості. Догляд і б’юті-засоби для жінок і чоловіків.",
     "newsletter": {

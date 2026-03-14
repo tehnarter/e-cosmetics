@@ -59,6 +59,34 @@
     }
   },
   "reviewsTitle": "What Our Customers Say",
+
+  "filters": {
+    "tShirts": "T-shirts",
+    "shorts": "Shorts",
+    "shirts": "Shirts",
+    "hoodie": "Hoodies",
+    "jeans": "Jeans",
+    "colors": "Colors",
+    "dressStyle": "Dress Style",
+    "casual": "Casual",
+    "formal": "Formal",
+    "party": "Party",
+    "gym": "Gym",
+    "applyFilter": "Apply Filter",
+    "title": "Filters",
+    "description": "Product filters",
+    "price": "Price",
+    "size": "Size",
+    "xxSmall": "XX-Small",
+    "xSmall": "X-Small",
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large",
+    "xLarge": "X-Large",
+    "xxLarge": "XX-Large",
+    "3xLarge": "XX-Large",
+    "4xLarge": "XX-Large"
+  },
   "footer": {
     "text": "Cosmetics that match your style and quality standards. Care and beauty products for women and men.",
     "newsletter": {

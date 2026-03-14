@@ -1,17 +1,18 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const open = ref(["filter-size"]) // multiple mode — масив
 const selected = ref("Large")
 
 const sizes = [
-  "XX-Small",
-  "X-Small",
-  "Small",
-  "Medium",
-  "Large",
-  "X-Large",
-  "XX-Large",
-  "3X-Large",
-  "4X-Large",
+  t("filters.xxSmall"),
+  t("filters.xSmall"),
+  t("filters.small"),
+  t("filters.medium"),
+  t("filters.large"),
+  t("filters.xLarge"),
+  t("filters.xxLarge"),
+  t("filters.3xLarge"),
+  t("filters.4xLarge"),
 ]
 </script>
 
@@ -19,7 +20,7 @@ const sizes = [
   <UiAccordion v-model="open" type="multiple" collapsible>
     <UiAccordionItem value="filter-size" class="sizes-item">
       <UiAccordionTrigger value="filter-size" class="sizes-trigger">
-        Size
+        {{ t("filters.size") }}
       </UiAccordionTrigger>
 
       <UiAccordionContent value="filter-size" class="sizes-content">
